@@ -1,0 +1,4 @@
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\x64\Debug\Addon Facturas Proveedores.exe.config
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Debug\Interop.SAPbobsCOM.dll
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Debug\Interop.SAPbouiCOM.dll
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Debug\Addon Facturas Proveedores.csproj.ResolveComReference.cache
