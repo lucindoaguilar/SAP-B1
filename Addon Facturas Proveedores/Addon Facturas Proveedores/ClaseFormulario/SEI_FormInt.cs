@@ -17,105 +17,20 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
     public class SEI_FormIntegracion
     {
         public static SAPbouiCOM.DataTable dt = null;
+
+        /// <summary>
+        /// constructor de la clase
+        /// </summary>
+        /// <param name="FormUID">string id del formulario</param>
         public SEI_FormIntegracion(String FormUID)
         {
             CargarXML();
             CargarFormulario(FormUID);
         }
-
-
-        /*
-        private static void CargarXML(String FormUID)
-        {
-            XmlDocument oXmlDoc = null;
-            SAPbouiCOM.FormCreationParams creationPackage = null;
-            Boolean bFormAbierto = false;
-            SAPbouiCOM.Form oForm = null;
-            SAPbouiCOM.Form oFormAbierto = null;
-            Int32 index;
-            String xml = String.Empty;
-
-            try
-            {
-                for (index = 0; index < Conexion_SBO.m_SBO_Appl.Forms.Count; index++)
-                {
-                    oFormAbierto = Conexion_SBO.m_SBO_Appl.Forms.Item(index);
-                    if (oFormAbierto.UniqueID.Equals(FormUID))
-                    {
-                        bFormAbierto = true;
-                        break;
-                    }
-                }
-
-                // Si el form no esta abierto se abre
-                if (!bFormAbierto)
-                {
-                    oXmlDoc = new XmlDocument();
-                    xml = System.Windows.Forms.Application.StartupPath.ToString();
-                    //xml += "\\";
-                    xml = xml + "\\Formularios\\" + "FormInt.srf";
-                    oXmlDoc.Load(xml);
-
-                    xml = oXmlDoc.InnerXml.ToString();
-
-                    creationPackage = (SAPbouiCOM.FormCreationParams)Conexion_SBO.m_SBO_Appl.CreateObject(SAPbouiCOM.BoCreatableObjectType.cot_FormCreationParams);
-                    creationPackage.UniqueID = FormUID;
-                    creationPackage.FormType = FormUID;
-                    //creationPackage.Modality = SAPbouiCOM.BoFormModality.fm_Modal;
-                    creationPackage.XmlData = xml;
-                    oForm = Conexion_SBO.m_SBO_Appl.Forms.AddEx(creationPackage);
-                    //oForm.Title = String.Format(oForm.Title);
-                }
-                // Si no traer al frente
-                else
-                {
-                    Conexion_SBO.m_SBO_Appl.Forms.Item(index).Select();
-                }
-            }
-            catch (Exception ex)
-            {
-                Conexion_SBO.m_SBO_Appl.StatusBar.SetText("CargarXML > SEI_FormIntegracion.cs " + ex.Message, SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
-            }
-            finally
-            {
-                FuncionesComunes.LiberarObjetoGenerico(oForm);
-                FuncionesComunes.LiberarObjetoGenerico(oFormAbierto);
-            }
-        }
-
-        private static void CargarFormulario(String FormUID)
-        {
-            SAPbouiCOM.Form oForm = null;
-            SAPbouiCOM.Matrix oMatrix = null;
-            Int32 index = 1;
-            try
-            {
-                oForm = Conexion_SBO.m_SBO_Appl.Forms.Item(FormUID);
-                oForm.Freeze(true);
-                oForm.Freeze(false);
-
-            }
-            catch
-            {
-                oForm.Freeze(false);
-
-            }
-            finally
-            {
-                oForm.Freeze(false);
-                FuncionesComunes.LiberarObjetoGenerico(oForm);
-                FuncionesComunes.LiberarObjetoGenerico(oMatrix);
-            }
-        }
-        */
-
-
-
+          
         /// <summary>
         /// Carga el formulario de ingreso múltiple a traves de su XML
-        /// </summary>
-
-        
+        /// </summary>        
         public static void CargarXML()
         {
             XmlDocument oXmlDoc = null;
@@ -202,7 +117,6 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
         /// <summary>
         /// Forma el formulario de documentos, con los campos necesarios.
         /// </summary>
-
         private void CargarFormulario(String FormUID)
         {
             SAPbouiCOM.Form oForm = Conexion_SBO.m_SBO_Appl.Forms.Item(FormUID);
