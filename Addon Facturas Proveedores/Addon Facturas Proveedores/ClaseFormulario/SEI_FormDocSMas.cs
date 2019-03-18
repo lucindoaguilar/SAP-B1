@@ -12,7 +12,10 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 {
     public class SEI_FormDocSMas
     {
-
+        /// <summary>
+        /// obtiene una lista de documentos sap
+        /// </summary>
+        /// <param name="Listdocuments">Lista de documentos</param>
         public SEI_FormDocSMas(List<Documents> Listdocuments)
         {
             CargarXML();
