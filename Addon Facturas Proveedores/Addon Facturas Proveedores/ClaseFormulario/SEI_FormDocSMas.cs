@@ -48,6 +48,9 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
         }
 
+        /// <summary>
+        /// funcion carga el XML del formulario
+        /// </summary>
         public static void CargarXML()
         {
             XmlDocument oXmlDoc = null;
@@ -100,6 +103,13 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 Conexion_SBO.m_SBO_Appl.StatusBar.SetText(result.Mensaje, SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
             }
         }
+
+        /// <summary>
+        /// funcion controla los eventos del formulario
+        /// </summary>
+        /// <param name="FormUID">identificador unico del formulario</param>
+        /// <param name="pVal">Item even</param>
+        /// <param name="BubbleEvent">BobbleEvent</param>
         public static void m_SBO_Appl_ItemEvent(String FormUID, ref SAPbouiCOM.ItemEvent pVal, out bool BubbleEvent)
         {
             BubbleEvent = true;
@@ -144,6 +154,11 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
         }
 
+        /// <summary>
+        /// funcion gentiion el uso del ChooseFromList
+        /// </summary>
+        /// <param name="oForm">objeto del formulario</param>
+        /// <param name="pVal">Item Even</param>
         private static void GestionarSeleccionCFL(SAPbouiCOM.Form oForm, SAPbouiCOM.ItemEvent pVal)
         {
             SAPbouiCOM.IChooseFromListEvent oCFLEvento = null;
@@ -207,6 +222,10 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
         }
 
+        /// <summary>
+        /// funcion integra facturas
+        /// </summary>
+        /// <param name="oForm"></param>
         private static void IntegracionServicio(SAPbouiCOM.Form oForm)
         {
             //DTE objDTE = null;
