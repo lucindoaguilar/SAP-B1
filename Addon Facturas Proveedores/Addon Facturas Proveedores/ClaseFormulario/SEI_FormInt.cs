@@ -71,6 +71,9 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     creationPackage.Modality = SAPbouiCOM.BoFormModality.fm_None;
                     creationPackage.XmlData = sXML;
                     oForm = Conexion_SBO.m_SBO_Appl.Forms.AddEx(creationPackage);
+                    oForm.Mode = SAPbouiCOM.BoFormMode.fm_ADD_MODE;
+                    oForm.Visible = true;
+                    oForm.AutoManaged = false;
                 }
                 // Si no traer al frente
                 else
@@ -207,7 +210,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             oComboBox.ValidValues.Add("56", "Nota de Débito Electrónica");
             oComboBox.ValidValues.Add("61", "Nota de Crédito Electrónica");
             oComboBox.Select("33", SAPbouiCOM.BoSearchKey.psk_ByValue);
-            oComboBox.ExpandType = SAPbouiCOM.BoExpandType.et_DescriptionOnly;
+            //oComboBox.ExpandType = SAPbouiCOM.BoExpandType.et_DescriptionOnly;
 
 
             Top += 20;
@@ -276,6 +279,11 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             dt.Columns.Add("co_Base", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric);
             dt.Columns.Add("co_CkeckSe", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric);
 
+            dt.Columns.Add("co_DocRef", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric);
+            dt.Columns.Add("co_NroRef", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric);
+            dt.Columns.Add("co_FecRef", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric);
+            dt.Columns.Add("co_RzRef", SAPbouiCOM.BoFieldsType.ft_AlphaNumeric);
+
             oColumn = oColumns.Add("co_Rut", SAPbouiCOM.BoFormItemTypes.it_EDIT);
             oColumn.TitleObject.Caption = "Rut Emisor";
             oColumn.Editable = false;
@@ -294,6 +302,36 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             oColumn.Visible = true;
             oColumn.Width = 70;
             oColumn.DataBind.Bind("DOCUMENTOS", "co_CkeckSe");
+
+            /////////////////////////////////////
+            oColumn = oColumns.Add("co_DocRef", SAPbouiCOM.BoFormItemTypes.it_EDIT);
+            oColumn.TitleObject.Caption = "Documento de Ref.";
+            oColumn.Visible = true;
+            oColumn.Editable = false;
+            oColumn.Width = 90;
+            oColumn.DataBind.Bind("DOCUMENTOS", "co_DocRef");
+
+            oColumn = oColumns.Add("co_NroRef", SAPbouiCOM.BoFormItemTypes.it_EDIT);
+            oColumn.TitleObject.Caption = "Nº de Ref.";
+            oColumn.Visible = true;
+            oColumn.Editable = false;
+            oColumn.Width = 60;
+            oColumn.DataBind.Bind("DOCUMENTOS", "co_NroRef");
+
+            oColumn = oColumns.Add("co_FecRef", SAPbouiCOM.BoFormItemTypes.it_EDIT);
+            oColumn.TitleObject.Caption = "Fecha de Ref.";
+            oColumn.Visible = true;
+            oColumn.Editable = false;
+            oColumn.Width = 60;
+            oColumn.DataBind.Bind("DOCUMENTOS", "co_FecRef");
+
+            oColumn = oColumns.Add("co_RzRef", SAPbouiCOM.BoFormItemTypes.it_EDIT);
+            oColumn.TitleObject.Caption = "Razón de Ref.";
+            oColumn.Visible = true;
+            oColumn.Editable = false;
+            oColumn.Width = 60;
+            oColumn.DataBind.Bind("DOCUMENTOS", "co_RzRef");
+            ///////////////////////////////////////
 
             oColumn = oColumns.Add("co_Exissn", SAPbouiCOM.BoFormItemTypes.it_CHECK_BOX);
             oColumn.TitleObject.Caption = "Existe SN";
@@ -442,7 +480,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             oColumn.Visible = false;
             oColumn.DataBind.Bind("DOCUMENTOS", "co_FebId");
 
-
+            
 
             oForm.Freeze(false);
         }
