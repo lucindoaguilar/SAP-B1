@@ -17,5 +17,9 @@ namespace Addon_Facturas_Proveedores
         public string FchVenc { get; set; }
         public string MntTotal { get; set; }
         public string IVA { get; set; }
+        public string DocRef { get; set; }
+        public string NroRef { get; set; }
+        public string FecRef { get; set; }
+        public string RzRef { get; set; }
     }
 }

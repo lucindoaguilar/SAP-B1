@@ -18,6 +18,8 @@ namespace Addon_Facturas_Proveedores.Comunes
         public Int32? formaDePago { get; set; }
         public String estadoSii { get; set; }
         public Int32 plazo { get; set; }
+
+
     }
 
     public class RootObjectDescarga

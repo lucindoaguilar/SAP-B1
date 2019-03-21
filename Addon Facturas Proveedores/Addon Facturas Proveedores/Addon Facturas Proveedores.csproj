@@ -116,7 +116,9 @@
     <Content Include="Formularios\FormDocS.srf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Formularios\FormDocSMas.srf" />
+    <None Include="Formularios\FormDocSMas.srf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Formularios\FormInt.srf">
       <SubType>Designer</SubType>
     </None>

@@ -691,11 +691,22 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             
         }
 
+
         /// <summary>
         /// Obtiene los documentos desde febos y los muestra en grilla
         /// </summary>
         public static void GestionarDescarga(SAPbouiCOM.Matrix oMatrix, SAPbouiCOM.Form oForm)
         {
+            double dbValor = 100.025;
+            if ((dbValor % 1) == 0)
+                dbValor = 0;
+                dbValor = 100.00;
+            if ((dbValor % 1) == 0)
+                dbValor = 0;
+
+
+
+
             string strMensaje = "";
             List<Referencia> RefOC = null;
             List<Referencia> RefEM = null;
@@ -799,6 +810,11 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     String TotalOC = String.Empty;
                     String FoliosEMSAP = String.Empty;
 
+                    string DocRef = null;
+                    string NroRef = null;
+                    string FecRef = null;
+                    string RzRef = null;
+
                     strMensaje = d.mensaje;
 
                     foreach (Comunes.Documento dto in d.documentos)
@@ -881,6 +897,16 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                             {
                                                 //dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
                                                 string FoliosEM = string.Join(", ", RefEM.Select(z => z.FolioRef));
+                                                // Referencia entrada
+                                                DocRef = string.Join(", ", RefEM.Select(z => z.FolioRef));
+                                                NroRef = string.Join(", ", RefEM.Select(z => z.CodRef));
+                                                FecRef = string.Join(", ", RefEM.Select(z => z.FchRef));
+                                                RzRef = string.Join(", ", RefEM.Select(z => z.RazonRef));
+                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+
                                                 existe = FuncionesComunes.ExisteEntradaMercancia("52", FoliosEM, CardCode, ref TotalEM, ref FoliosEMSAP);
 
                                                 if (existe)
@@ -889,6 +915,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                                     dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
                                                     dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
                                                     dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
+                                                    //Referecia
+                                                    
                                                 }
                                                 else
                                                 {
@@ -901,6 +929,16 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                             {
                                                 string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
                                                 existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosOC, CardCode, ref TotalEM, ref FoliosEMSAP);
+
+                                                // Referencia orden de compra
+                                                DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
+                                                FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
+                                                RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
+                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
 
                                                 if (existe)
                                                 {
@@ -1515,12 +1553,18 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         doc.Tipo = FuncionesComunes.ObtenerTipoDocumentoNumero(oMatrix.Columns.Item("co_Tipo").Cells.Item(index).Specific.Value);
                         doc.Folio = oMatrix.Columns.Item("co_Folio").Cells.Item(index).Specific.Value;
 
+                        doc.DocRef = oMatrix.Columns.Item("co_DocRef").Cells.Item(index).Specific.Value;
+                        doc.NroRef = oMatrix.Columns.Item("co_NroRef").Cells.Item(index).Specific.Value;
+                        doc.FecRef = oMatrix.Columns.Item("co_FecRef").Cells.Item(index).Specific.Value;
+                        doc.RzRef = oMatrix.Columns.Item("co_RzRef").Cells.Item(index).Specific.Value;
+
                         doc.CardCode = oMatrix.Columns.Item("co_Card").Cells.Item(index).Specific.Value;
                         doc.FchEmis = Convert.ToDateTime(objDTE.IdDoc.FchEmis).ToString();
                         doc.FchVenc = Convert.ToDateTime(objDTE.IdDoc.FchVenc).ToString();
                         doc.MntTotal = objDTE.Totales.MntTotal.ToString();
                         doc.IVA = objDTE.Totales.IVA.ToString();
                         ListDoc.Add(doc);
+
                     }
                 }
                 
@@ -1880,7 +1924,12 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         //doc.RznSocial = oMatrix.Columns.Item("co_RznSoc").Cells.Item(index).Specific.Value;
                         doc.Tipo = FuncionesComunes.ObtenerTipoDocumentoNumero(oMatrix.Columns.Item("co_Tipo").Cells.Item(index).Specific.Value);
                         doc.Folio = oMatrix.Columns.Item("co_Folio").Cells.Item(index).Specific.Value;
-                      
+
+                        doc.DocRef = oMatrix.Columns.Item("co_DocRef").Cells.Item(index).Specific.Value;
+                        doc.NroRef = oMatrix.Columns.Item("co_NroRef").Cells.Item(index).Specific.Value;
+                        doc.FecRef = oMatrix.Columns.Item("co_FecRef").Cells.Item(index).Specific.Value;
+                        doc.RzRef = oMatrix.Columns.Item("co_RzRef").Cells.Item(index).Specific.Value;
+
                         doc.CardCode = oMatrix.Columns.Item("co_Card").Cells.Item(index).Specific.Value;
                         doc.FchEmis = Convert.ToDateTime(objDTE.IdDoc.FchEmis).ToString();
                         doc.FchVenc = Convert.ToDateTime(objDTE.IdDoc.FchVenc).ToString();

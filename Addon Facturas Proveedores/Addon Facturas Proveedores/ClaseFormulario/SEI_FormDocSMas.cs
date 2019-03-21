@@ -33,6 +33,12 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     oMatrix.AddRow();
                     ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_7").Cells.Item(cantRow).Specific).Value = doc.RutEmisor;
                     ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_8").Cells.Item(cantRow).Specific).Value = doc.Folio;
+
+                    ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-1").Cells.Item(cantRow).Specific).Value = doc.DocRef;
+                    ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-2").Cells.Item(cantRow).Specific).Value = doc.NroRef;
+                    ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-3").Cells.Item(cantRow).Specific).Value = doc.FecRef;
+                    ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-4").Cells.Item(cantRow).Specific).Value = doc.RzRef;
+
                     ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_9").Cells.Item(cantRow).Specific).Value  = doc.Tipo;
                     ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_10").Cells.Item(cantRow).Specific).Value = doc.FebId;
                     ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_11").Cells.Item(cantRow).Specific).Value = doc.CardCode;
@@ -357,12 +363,11 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                 rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                                 if (rslt.Success)
                                 {
-                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", Folio, RutEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
-                                    //file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                        Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Exito: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
                                 }
                                 else
                                 {
-                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", Folio, RutEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
+                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Reparo: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor + " Se integro, pero no se completo proceso de intercambio.", SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
                                     //file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
                                 }
                             }
@@ -371,7 +376,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                 Int32 ErrCode = 0;
                                 String ErrMsj = String.Empty;
                                 Conexion_SBO.m_oCompany.GetLastError(out ErrCode, out ErrMsj);
-                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Error: El DTE {0} Tipo {1} de {2}-{3} No se integro. {4}", Folio, RutEmisor, ErrMsj), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
+                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Error: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor + " No se integro " + ErrMsj, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
                                 //file.WriteLine(String.Format("Error: El DTE {0} Tipo {1} de {2}-{3} No se integro. {4}", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor, ErrMsj));
                             }
                         //}
