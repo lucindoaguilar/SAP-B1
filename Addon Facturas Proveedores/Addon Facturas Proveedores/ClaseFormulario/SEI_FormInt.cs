@@ -504,7 +504,20 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             {
                 if (pVal.BeforeAction)
                 {
-
+                    switch(pVal.EventType)
+                    {
+                        case SAPbouiCOM.BoEventTypes.et_DOUBLE_CLICK:
+                            switch(pVal.ItemUID)
+                            {
+                                case "oMtx":
+                                    if (pVal.ColUID.Equals("co_CkeckSe"))
+                                    {
+                                        SelectAll(oForm);
+                                    }
+                                    break;
+                            }
+                            break;
+                    }
                     if (pVal.BeforeAction && pVal.EventType.Equals(SAPbouiCOM.BoEventTypes.et_CLICK) && pVal.ItemUID.Equals("bt_Proc"))
                     {
                         oCombo = oForm.Items.Item("cb_Options").Specific;
@@ -690,7 +703,6 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             }
             
         }
-
 
         /// <summary>
         /// Obtiene los documentos desde febos y los muestra en grilla
@@ -1596,6 +1608,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
             }
         }
+
         private static bool GestionarValidacionesFactura(SAPbouiCOM.Form oForm, Int32 index, out String mensaje, out bool noRechazable)
         {
             String Referencia = string.Empty;
@@ -1909,14 +1922,17 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             try
             {
                 oMatrix = oForm.Items.Item("oMtx").Specific;
-                Documents doc = new Documents();
+                
                 List<Documents> ListDoc = new List<Documents>();
                 DTE objDTE = null;
+                ListDoc.Clear();
                 for (int index=1;index<= oMatrix.VisualRowCount;index++)
                 {
+
                     oCheckBox = oMatrix.Columns.Item("co_CkeckSe").Cells.Item(index).Specific;
                     if (oCheckBox.Checked)
                     {
+                        Documents doc = new Documents();
                         doc.FebId = oMatrix.Columns.Item("co_FebId").Cells.Item(index).Specific.Value;
                         FebId = doc.FebId;
                         objDTE = ListaDTEMatrix.ListaDTE.Where(x => x.FebosID == FebId).Select(x => x.objDTE).SingleOrDefault();
@@ -1954,7 +1970,6 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 FuncionesComunes.LiberarObjetoGenerico(oMatrix);
             }
         }
-
 
         /// <summary>
         /// Funcion que muestra o esconde la razon de rechazo.
@@ -2317,6 +2332,29 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 return false;
             }
         }
+
+        private static void SelectAll(SAPbouiCOM.Form oForm)
+        {
+            SAPbouiCOM.Matrix oMatrix = null;
+            try
+            {
+                oMatrix = oForm.Items.Item("oMtx").Specific;
+                oForm.Freeze(true);
+                for (int i = 1; i <= oMatrix.RowCount; i++)
+                {
+                    if (((SAPbouiCOM.CheckBox)oMatrix.Columns.Item("co_CkeckSe").Cells.Item(i).Specific).Checked)
+                        ((SAPbouiCOM.CheckBox)oMatrix.Columns.Item("co_CkeckSe").Cells.Item(i).Specific).Checked = false;
+                    else
+                        ((SAPbouiCOM.CheckBox)oMatrix.Columns.Item("co_CkeckSe").Cells.Item(i).Specific).Checked = true;
+                }
+                oForm.Freeze(false);
+            }
+            catch
+            {
+                oForm.Freeze(false);
+            }
+        }
+
     }
 
 

@@ -126,23 +126,6 @@ C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedore
 C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csproj.GenerateResource.Cache
 C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.exe
 C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.pdb
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.exe.config
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Interop.SAPbobsCOM.dll
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Interop.SAPbouiCOM.dll
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csproj.ResolveComReference.cache
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.exe
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.pdb
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormDocS.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormErr.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormDat.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormIngMultipleHec.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormIntc.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormMerc.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormNoRec.srf
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.exe
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.pdb
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon_Facturas_Proveedores.Properties.Resources.resources
-C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csproj.GenerateResource.Cache
 C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.exe.config
 C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Interop.SAPbobsCOM.dll
 C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Interop.SAPbouiCOM.dll
@@ -161,5 +144,22 @@ C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedo
 C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon_Facturas_Proveedores.Properties.Resources.resources
 C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csproj.GenerateResource.Cache
 C:\Users\seidor\Documents\git\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormDocS.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormErr.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormDat.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormIngMultipleHec.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormIntc.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormMerc.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormNoRec.srf
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormDocSMas.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.exe.config
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Addon Facturas Proveedores.pdb
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Interop.SAPbobsCOM.dll
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Interop.SAPbouiCOM.dll
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.pdb
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache

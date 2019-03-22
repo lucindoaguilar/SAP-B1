@@ -135,13 +135,18 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
                         case SAPbouiCOM.BoEventTypes.et_CLICK:
                             oForm = Conexion_SBO.m_SBO_Appl.Forms.Item(FormUID);
-                            if (pVal.ItemUID.Equals("btnInt"))
-                            {                              
+                            switch(pVal.ItemUID)
+                            {
+                                case "btnInt":
+                                    IntegracionServicio(oForm);
 
-                                IntegracionServicio(oForm);
-
-                                oForm.Close();
-                            }                            
+                                    oForm.Close();
+                                    break;
+                                case "btnCompl":
+                                    CopyInfo(oForm);                                        
+                                    break;
+                            }
+                                                      
                             break;
                         default:
                             break;
@@ -254,6 +259,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             string FchVenc = String.Empty;
             string MntTotal = String.Empty;
             string IVA = String.Empty;
+            string NroRef = null;
 
             try
             {
@@ -278,6 +284,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     FchVenc = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_FVenc").Cells.Item(i).Specific).Value;
                     MntTotal = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_Total").Cells.Item(i).Specific).Value;
                     IVA = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_IVA").Cells.Item(i).Specific).Value;
+
+                    NroRef = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-1").Cells.Item(i).Specific).Value;
 
                     ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Int64.Parse(Folio));
                     rslt.Success = true;
@@ -335,6 +343,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                             oDoc.FolioPrefixString = Tipo;
                             oDoc.Indicator = Tipo;
                             oDoc.UserFields.Fields.Item("U_SEI_FEBOSID").Value = FebId;
+                            oDoc.NumAtCard = NroRef;
 
                             oDoc.Lines.ItemDescription = Descripcion;
                             oDoc.Lines.AccountCode = Cuenta;
@@ -394,5 +403,54 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             }
 
         }
+
+        private static void CopyInfo(SAPbouiCOM.Form oForm)
+        {
+            string sDescripcion = null;
+            string sCuenta = null;
+            string sDim1 = null;
+            string sDim2 = null;
+            string sDim3 = null;
+            string sDim4 = null;
+            string sDim5 = null;                
+
+            SAPbouiCOM.Matrix oMatrix = null;
+            try
+            {
+                oMatrix = oForm.Items.Item("MatrixIM").Specific;
+                oForm.Freeze(true);
+                for(int i= 1; i <= oMatrix.RowCount;i++)
+                {
+                    if (i == 1)
+                    {
+                        sDescripcion = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_0").Cells.Item(i).Specific).Value;
+                        sCuenta = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1").Cells.Item(i).Specific).Value;
+                        sDim1 = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_2").Cells.Item(i).Specific).Value;
+                        sDim2 = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_3").Cells.Item(i).Specific).Value;
+                        sDim3 = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_4").Cells.Item(i).Specific).Value;
+                        sDim4 = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_5").Cells.Item(i).Specific).Value;
+                        sDim5 = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_6").Cells.Item(i).Specific).Value;
+                    }
+                    else
+                    {
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_0").Cells.Item(i).Specific).Value = sDescripcion;
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1").Cells.Item(i).Specific).Value = sCuenta;
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_2").Cells.Item(i).Specific).Value = sDim1;
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_3").Cells.Item(i).Specific).Value = sDim2;
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_4").Cells.Item(i).Specific).Value = sDim3;
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_5").Cells.Item(i).Specific).Value = sDim4;
+                        ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_6").Cells.Item(i).Specific).Value = sDim5;
+                    }
+                }
+                
+
+                oForm.Freeze(false);
+            }
+            catch (Exception ex)
+            {
+                oForm.Freeze(false);
+            }
+        }
+
     }
 }
