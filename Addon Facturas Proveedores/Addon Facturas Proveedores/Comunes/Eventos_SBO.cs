@@ -121,6 +121,9 @@ namespace Addon_Facturas_Proveedores.Comunes
                     case "FormDocSMas":
                         SEI_FormDocSMas.m_SBO_Appl_ItemEvent(FormUID, ref pVal, out BubbleEvent);
                         break;
+                    case "FormSetVal":
+                        SEI_FormSetVal.ItemEventEventHandler(FormUID, ref pVal, out BubbleEvent);
+                        break;
                         /*
                     case "SEI_INTC":
                         SEI_FormIntegracionContado.m_SBO_Appl_ItemEvent(FormUID, ref pVal, out BubbleEvent);
@@ -170,6 +173,9 @@ namespace Addon_Facturas_Proveedores.Comunes
                     {
                         case "SEI_INT":
                             SEI_FormIntegracion oProv = new SEI_FormIntegracion("SEI_INT");
+                            break;
+                        case "SET_VAL":
+                            SEI_FormSetVal sv = new SEI_FormSetVal();
                             break;
                             /*
                         case "SEI_INTC":
@@ -224,6 +230,7 @@ namespace Addon_Facturas_Proveedores.Comunes
                 CreaMenu("SEI_FELP", "Integración DTE Proveedores", "2304", SAPbouiCOM.BoMenuType.mt_POPUP);
                 CreaMenu("SEI_CRE", "Crédito", "SEI_FELP", SAPbouiCOM.BoMenuType.mt_POPUP);
                 CreaMenu("SEI_INT", "Integración SAP", "SEI_CRE", SAPbouiCOM.BoMenuType.mt_STRING);
+                CreaMenu("SET_VAL", "Integración SAP", "SEI_FELP", SAPbouiCOM.BoMenuType.mt_STRING);
                 //CreaMenu("SEI_CONT", "Contado", "SEI_FELP", SAPbouiCOM.BoMenuType.mt_POPUP);
                 //CreaMenu("SEI_INTC", "Integración SAP", "SEI_CONT", SAPbouiCOM.BoMenuType.mt_STRING);
                 //CreaMenu("SEI_ERR", "ver DTE erroneo no contado", "SEI_CONT", SAPbouiCOM.BoMenuType.mt_STRING);

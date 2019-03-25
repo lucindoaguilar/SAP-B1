@@ -1223,6 +1223,8 @@ namespace Addon_Facturas_Proveedores.Comunes
             ResultMessage result = new ResultMessage();
             SAPbobsCOM.Recordset oRecordset = null;
             String Query = String.Empty;
+            string Query2 = null, Query3 = null, Query4 = null;
+
 
             try
             {
@@ -1232,31 +1234,48 @@ namespace Addon_Facturas_Proveedores.Comunes
                 {
                     case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
                         Query = "SELECT 1 FROM ODRF T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
-                        Query += " UNION";
-                        Query += " SELECT 1 FROM OPDN T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
-                        Query += " UNION";
-                        Query += " SELECT 1 FROM OPCH T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
-                        Query += " UNION";
-                        Query += " SELECT 1 FROM ORPC T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
+                        //Query += " UNION";
+                        //Query2 = " SELECT 1 FROM OPDN T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
+                        //Query += " UNION";
+                        Query3 = " SELECT 1 FROM OPCH T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
+                        //Query += " UNION";
+                        Query4 = " SELECT 1 FROM ORPC T0 WHERE T0.\"LicTradNum\" = '" + Rut + "' AND T0.\"FolioPref\" = '" + Tipo + "' AND T0.\"FolioNum\" = " + Folio + "";
                         break;
                     default:
                         Query = "SELECT 1 FROM ODRF T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + "";
-                        Query += " UNION ";
-                        Query += " SELECT 1 FROM OPDN T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + " ";
-                        Query += " UNION";
-                        Query += " SELECT 1 FROM OPCH T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + "";
-                        Query += " UNION";
-                        Query += " SELECT 1 FROM ORPC T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + "";
+                        //Query += " UNION ";
+                        //Query2 += " SELECT 1 FROM OPDN T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + " ";
+                        //Query += " UNION";
+                        Query3 = " SELECT 1 FROM OPCH T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + "";
+                        //Query += " UNION";
+                        Query4 = " SELECT 1 FROM ORPC T0 WHERE T0.LicTradNum = '" + Rut + "' AND T0.FolioPref = '" + Tipo + "' AND T0.FolioNum = " + Folio + "";
                         break;
                 }                
 
                 oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
                 oRecordset.DoQuery(Query);
-
                 // Si no hay datos
                 if (oRecordset.EoF)
-                {
-                    result.Success = true;
+                {                   
+                    oRecordset.DoQuery(Query3);
+                    if (oRecordset.EoF)
+                    {
+                        oRecordset.DoQuery(Query4);
+                        if (oRecordset.EoF)
+                        {
+                            result.Success = true;
+                        }
+                        else
+                        {
+                            result.Success = false;
+                            result.Mensaje = String.Format("El DTE Nro {0} de Tipo {1} del proveedor {2} ya se encuentra integrado", Folio, Tipo, Rut);
+                        }
+                    }
+                    else
+                    {
+                        result.Success = false;
+                        result.Mensaje = String.Format("El DTE Nro {0} de Tipo {1} del proveedor {2} ya se encuentra integrado", Folio, Tipo, Rut);
+                    }                    
                 }
                 // si hay datos
                 else

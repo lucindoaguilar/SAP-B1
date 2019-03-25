@@ -75,6 +75,7 @@
     <Compile Include="ClaseFormulario\SEI_FormINGMH.cs" />
     <Compile Include="ClaseFormulario\SEI_FormIntC.cs" />
     <Compile Include="ClaseFormulario\SEI_FormInt.cs" />
+    <Compile Include="ClaseFormulario\SEI_FormSetVal.cs" />
     <Compile Include="Comunes\AsignacionMultiple.cs" />
     <Compile Include="Comunes\BaseFactura.cs" />
     <Compile Include="Comunes\Descarga.cs" />
@@ -121,6 +122,9 @@
     </None>
     <None Include="Formularios\FormInt.srf">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Formularios\FormSetVal.srf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

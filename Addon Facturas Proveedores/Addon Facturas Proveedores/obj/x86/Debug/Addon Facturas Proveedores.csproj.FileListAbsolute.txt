@@ -163,3 +163,4 @@ C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Provee
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.exe
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.pdb
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Debug\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Debug\Formularios\FormSetVal.srf

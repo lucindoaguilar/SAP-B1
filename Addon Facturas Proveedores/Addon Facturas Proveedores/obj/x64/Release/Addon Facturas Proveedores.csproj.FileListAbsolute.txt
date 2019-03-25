@@ -31,3 +31,4 @@ C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Provee
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.exe
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
