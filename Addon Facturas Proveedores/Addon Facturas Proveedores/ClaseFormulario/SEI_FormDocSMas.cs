@@ -452,5 +452,73 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             }
         }
 
+        /// <summary>
+        /// Funcion valida si existe configuracion de validacion
+        /// </summary>
+        /// <returns>true si existe configracion y false en caso contrario</returns>
+        private static bool ValExistConf()
+        {
+            SAPbobsCOM.Recordset oRecordset = null;
+            try
+            {
+                oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+                oRecordset.DoQuery("SELECT \"DocNum\" FROM \"@SEI_SETVALH\" ");
+                if (oRecordset.RecordCount > 0)
+                    return true;
+                else 
+                    return false;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        /// <summary>
+        /// funcion validad configuracion de validacion 
+        /// </summary>
+        /// <param name="sEntryOrder"> 1 : si es entrada , 2 : si es pedido </param> 
+        /// <returns></returns>
+        private static bool ValEntryOrder(string sEntryOrder)
+        {
+            bool blValid = false;
+            SAPbobsCOM.Recordset oRecordset = null;
+            string sQuery = null;
+            try
+            {
+                switch (sEntryOrder.Trim())
+                {
+                    case "1":
+                        sQuery = "SELECT T0.\"U_Validar\" FROM \"@SEI_SETVALL\"  T0 WHERE \"U_IdVal\" = '" + sEntryOrder.Trim() +"' ";
+                        break;
+                    case "2":
+                        sQuery = "SELECT T0.\"U_Validar\" FROM \"@SEI_SETVALL\"  T0 WHERE \"U_IdVal\" = '" + sEntryOrder.Trim() + "' ";
+                        break;
+                    default:
+                        break;
+                }
+                oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+                oRecordset.DoQuery(sQuery);
+                string sVal = oRecordset.Fields.Item("U_Validar").Value;
+                if (string.IsNullOrEmpty(sVal))
+                    blValid = false;
+                else
+                {
+                    if (sVal.Equals("N"))
+                        blValid = false;
+                    else
+                        blValid = true;
+                }
+            }
+            catch
+            {
+                blValid = false;
+            }
+            return blValid;
+        }
+
+
     }
 }

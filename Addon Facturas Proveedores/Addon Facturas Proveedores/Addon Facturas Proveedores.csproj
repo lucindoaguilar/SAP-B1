@@ -75,7 +75,9 @@
     <Compile Include="ClaseFormulario\SEI_FormINGMH.cs" />
     <Compile Include="ClaseFormulario\SEI_FormIntC.cs" />
     <Compile Include="ClaseFormulario\SEI_FormInt.cs" />
-    <Compile Include="ClaseFormulario\SEI_FormSetVal.cs" />
+    <Compile Include="ClaseFormulario\SEI_FormSetVal.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Comunes\AsignacionMultiple.cs" />
     <Compile Include="Comunes\BaseFactura.cs" />
     <Compile Include="Comunes\Descarga.cs" />
