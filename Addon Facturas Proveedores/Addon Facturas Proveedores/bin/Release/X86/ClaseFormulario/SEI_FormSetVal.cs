@@ -94,9 +94,17 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
             try
             {
+                oForm = Conexion_SBO.m_SBO_Appl.Forms.Item(FormUID);
                 switch (pVal.EventType)
                 {
                     case SAPbouiCOM.BoEventTypes.et_CLICK:
+                       switch(pVal.ItemUID)
+                        {
+                            case "1":
+                                
+                                break;
+
+                        }
                         break;
                 }
 
@@ -111,7 +119,6 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             }
         }
 
-
         private static void LoadInfo(SAPbouiCOM.Form oForm)
         {
             SAPbobsCOM.Recordset oRecordset = null;
@@ -121,44 +128,31 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 oForm.Freeze(true);
                 oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
                 oMatrix = oForm.Items.Item("Mtx1").Specific;
-                oRecordset.DoQuery("SELECT \"DocEntry\", \"Code\" FROM \"@SEI_SETVALH\" WHERE \"Code\" = 1001 ");
+                oRecordset.DoQuery("SELECT \"DocNum\" FROM \"@SEI_SETVALH\" ");
                 if (oRecordset.RecordCount > 0 )
                 {
-                    oForm.Mode = SAPbouiCOM.BoFormMode.fm_UPDATE_MODE;
-                    oForm.DataSources.DBDataSources.Item("@SEI_SETVALH").SetValue("Code", 0, oRecordset.Fields.Item("Code").Value);
-                    //lines
-                    string sQuery = "SELECT \"U_Dscr\",\"U_Validar\" FROM \"@SEI_SETVALL\" WHERE \"Code\" = '1001' ";
-                    oRecordset.DoQuery(sQuery);
-                    string val = null;
-                    for (int i =1; i <= oRecordset.RecordCount;i++)
-                    {
-                        val = (oRecordset.Fields.Item("U_Validar").Value);
+                    SAPbouiCOM.EditText oedit = null;
+                    oForm.Mode = SAPbouiCOM.BoFormMode.fm_FIND_MODE;
+                    oedit = oForm.Items.Item("DocNum").Specific;
+                    oedit.Value = "1";
+                    oForm.EnableMenu("1281", false);// 1281 --> Buscar
+                    oForm.EnableMenu("1282", false);// 1282 --> Crear 
+                    oForm.Items.Item("1").Click(SAPbouiCOM.BoCellClickType.ct_Regular);
+                    oForm.Items.Item("DocNum").Enabled = false;
+                    oForm.Items.Item("DocNum").Visible = false;
 
-                        oMatrix.AddRow();
-                        ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_0").Cells.Item(i).Specific)).Value = oRecordset.Fields.Item("U_Dscr").Value;
-                        ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(i).Specific)).Checked = false;
-
-                        //oForm.DataSources.DBDataSources.Item("@SEI_SETVALL").SetValue("U_Dscr", i, oRecordset.Fields.Item("U_Dscr").Value);
-                        //oForm.DataSources.DBDataSources.Item("@SEI_SETVALL").SetValue("U_Validar", i, oRecordset.Fields.Item("U_Validar").Value);
-                        oRecordset.MoveNext();
-                    }
                 }
                 else
                 {
 
                     oMatrix.AddRow(2);
-                    //head
-                    oForm.DataSources.DBDataSources.Item("@SEI_SETVALH").SetValue("Code", 0, "1001");
                     //lines
                     ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_0").Cells.Item(1).Specific)).Value = "Entrada de mercancias";
                     ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(1).Specific)).Checked = false;
+                    ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_2").Cells.Item(1).Specific)).Value = "1";
                     ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_0").Cells.Item(2).Specific)).Value = "Oferta de compra";
                     ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(2).Specific)).Checked = false;
-                    //oForm.DataSources.DBDataSources.Item("@SEI_SETVALL").SetValue("U_Dscr", 1, "Entrada de mercancias");
-                    //oForm.DataSources.DBDataSources.Item("@SEI_SETVALL").SetValue("U_Validar", 1, "N");
-                    //oForm.DataSources.DBDataSources.Item("@SEI_SETVALL").SetValue("U_Dscr", 2, "Oferta de compra");
-                    //oForm.DataSources.DBDataSources.Item("@SEI_SETVALL").SetValue("U_Validar", 2, "N");
-                    //oForm.Mode = SAPbouiCOM.BoFormMode.fm_ADD_MODE;
+                    ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_2").Cells.Item(1).Specific)).Value = "2";
                 }
                 oForm.Freeze(false);
 
@@ -166,6 +160,78 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             catch(Exception ex)
             {
                 oForm.Freeze(false);
+            }
+        }
+
+        private static void UpdateInfo(SAPbouiCOM.Form oForm)
+        {
+            SAPbouiCOM.Matrix oMatrix = null;
+            SAPbobsCOM.GeneralService oDocGeneralService = null;
+            SAPbobsCOM.CompanyService oCompService = null;
+            SAPbobsCOM.GeneralData oDocGeneralData = null;
+            SAPbobsCOM.GeneralDataCollection oDocLinesCollection = null;
+            SAPbobsCOM.GeneralData oDocLineGeneralData = null;
+            string sDocEntry = null,sCode=null, sDscrp = null;
+            bool Check = false;
+
+            try
+            {
+                #region fm_UPDATE_MODE Validaciones
+                //MODIFICAR Setting Validaciones
+
+                sCode = oForm.DataSources.DBDataSources.Item("@SEI_SETVALH").GetValue("Code", 0);
+                sDocEntry = oForm.DataSources.DBDataSources.Item("@SEI_SETVALH").GetValue("DocEntry", 0);
+
+
+                SAPbobsCOM.GeneralDataParams oGeneralDataParams = null;
+                Conexion_SBO.m_oCompany.StartTransaction();
+                oCompService = Conexion_SBO.m_oCompany.GetCompanyService();
+                oDocGeneralService = oCompService.GetGeneralService("SEI_SETVAL");
+                oGeneralDataParams = oDocGeneralService.GetDataInterface(SAPbobsCOM.GeneralServiceDataInterfaces.gsGeneralDataParams);
+                oGeneralDataParams.SetProperty("Code", sCode);
+                oDocGeneralData = oDocGeneralService.GetByParams(oGeneralDataParams);
+
+
+                //oDocGeneralData.SetProperty("U_FechaParada", dtFechP.ToString("yyyy-MM-dd"));
+                //oDocGeneralData.SetProperty("U_Turno", strTurP);
+
+                #region Lines validaciones
+                oDocLinesCollection = oDocGeneralData.Child("SEI_SETVALL");
+                oMatrix = oForm.Items.Item("Mtx1").Specific;
+                for (int reg = 1; reg <= oMatrix.RowCount; reg++)
+                {
+                    #region Asignacion de Valores
+                    sDscrp = ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_0").Cells.Item(reg).Specific)).Value;
+                    Check = ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(reg).Specific)).Checked;
+                    #endregion Asignacion de Valores
+
+                    #region Crear Lista de validaciones
+                    oDocLineGeneralData = oDocLinesCollection.Item(reg-1);
+                    oDocLineGeneralData.SetProperty("U_Dscr", sDscrp);
+                    oDocLineGeneralData.SetProperty("U_Validar", (Check ==  true ?"Y" : "N"));
+                    #endregion Crear Lista de validaciones                                    
+                }
+                //oDocGeneralService.Add(oDocGeneralData);
+                #endregion Lines validaciones
+
+                oDocGeneralService.Update(oDocGeneralData);
+
+                if (Conexion_SBO.m_oCompany.InTransaction)
+                {
+                    Conexion_SBO.m_oCompany.EndTransaction(SAPbobsCOM.BoWfTransOpt.wf_Commit);
+                }
+
+                oCompService = null;
+                GC.Collect();
+                
+                #endregion fm_UPDATE_MODE Validaciones
+            }
+            catch (Exception ex)
+            {
+                if (Conexion_SBO.m_oCompany.InTransaction)
+                {
+                    Conexion_SBO.m_oCompany.EndTransaction(SAPbobsCOM.BoWfTransOpt.wf_Commit);
+                }
             }
         }
 

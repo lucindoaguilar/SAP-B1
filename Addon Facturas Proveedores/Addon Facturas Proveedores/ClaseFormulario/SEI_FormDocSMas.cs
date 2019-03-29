@@ -475,7 +475,6 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             }
         }
 
-
         /// <summary>
         /// funcion validad configuracion de validacion 
         /// </summary>

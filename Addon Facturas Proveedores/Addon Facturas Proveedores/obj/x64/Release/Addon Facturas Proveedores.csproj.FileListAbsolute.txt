@@ -32,3 +32,5 @@ C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Provee
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
 C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x64\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\ClaseFormulario\SEI_FormSetVal.cs
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormSetVal.srf
