@@ -1576,10 +1576,12 @@ namespace Addon_Facturas_Proveedores.Comunes
                     switch (Conexion_SBO.m_oCompany.DbServerType)
                     {
                         case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
-                            Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"FolioNum\" IN (" + Folio + ") ";
+                            //Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"FolioNum\" IN (" + Folio + ") ";
+                            Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"DocNum\" IN (" + Folio + ") ";
                             break;
                         default:
-                            Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND FolioNum IN (" + Folio + ") ";
+                            //Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND FolioNum IN (" + Folio + ") ";
+                            Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND DocNum IN (" + Folio + ") ";
                             break;
                     }
 

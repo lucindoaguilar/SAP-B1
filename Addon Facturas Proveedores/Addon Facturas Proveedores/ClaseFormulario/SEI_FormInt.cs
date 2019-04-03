@@ -709,16 +709,6 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
         /// </summary>
         public static void GestionarDescarga(SAPbouiCOM.Matrix oMatrix, SAPbouiCOM.Form oForm)
         {
-            double dbValor = 100.025;
-            if ((dbValor % 1) == 0)
-                dbValor = 0;
-                dbValor = 100.00;
-            if ((dbValor % 1) == 0)
-                dbValor = 0;
-
-
-
-
             string strMensaje = "";
             List<Referencia> RefOC = null;
             List<Referencia> RefEM = null;
