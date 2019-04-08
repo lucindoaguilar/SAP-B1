@@ -8,15 +8,25 @@ namespace Addon_Facturas_Proveedores.Comunes
     public class Documento
     {
         public String febosId { get; set; }
+
         public Int32 tipoDocumento { get; set; }
-        public Int32 folio { get; set; }
-        public String fechaEmision { get; set; }
+
+        public String folio { get; set; }
+
+        public string fechaEmision { get; set; }       
+
         public String fechaRecepcion { get; set; }
+
         public String rutEmisor { get; set; }
+
         public String razonSocialEmisor { get; set; }
+
         public Double montoTotal { get; set; }
+
         public Int32? formaDePago { get; set; }
+
         public String estadoSii { get; set; }
+
         public Int32 plazo { get; set; }
 
 

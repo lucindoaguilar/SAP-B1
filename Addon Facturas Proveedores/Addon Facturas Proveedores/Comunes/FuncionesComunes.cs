@@ -1218,7 +1218,7 @@ namespace Addon_Facturas_Proveedores.Comunes
         /// Función que valida si un DTE se ha integrado antes o no.
         /// Retorna true si se puede integrar, false si ya existe y no se puede integrar
         /// </summary>
-        public static ResultMessage ValidacionDTEIntegrado(String Rut, Int32 Tipo, Int64 Folio)
+        public static ResultMessage ValidacionDTEIntegrado(String Rut, Int32 Tipo, string Folio)
         {
             ResultMessage result = new ResultMessage();
             SAPbobsCOM.Recordset oRecordset = null;
@@ -1457,10 +1457,12 @@ namespace Addon_Facturas_Proveedores.Comunes
                     switch (Conexion_SBO.m_oCompany.DbServerType)
                     {
                         case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
-                            Query = "SELECT SUM(\"DocTotal\") FROM OPOR WHERE \"LicTradNum\" = '" + Cardcode + "' AND \"FolioNum\" IN (" + lFolio + ") ";
+                            //Query = "SELECT SUM(\"DocTotal\") FROM OPOR WHERE \"LicTradNum\" = '" + Cardcode + "' AND \"FolioNum\" IN (" + lFolio + ") ";
+                            Query = "SELECT SUM(\"DocTotal\") FROM OPOR WHERE \"CardCode\" = '" + Cardcode + "' AND \"DocNum\" IN (" + lFolio + ") ";
                             break;
                         default:
-                            Query = "SELECT SUM(DocTotal) FROM OPOR WHERE LicTradNum = '" + Cardcode + "' AND FolioNum IN (" + lFolio + ") ";
+                            //Query = "SELECT SUM(DocTotal) FROM OPOR WHERE LicTradNum = '" + Cardcode + "' AND FolioNum IN (" + lFolio + ") ";
+                            Query = "SELECT SUM(DocTotal) FROM OPOR WHERE CardCode = '" + Cardcode + "' AND DocNum IN (" + lFolio + ") ";
                             break;
                     }
 
@@ -1470,10 +1472,10 @@ namespace Addon_Facturas_Proveedores.Comunes
                     switch (Conexion_SBO.m_oCompany.DbServerType)
                     {
                         case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
-                            Query = "SELECT SUM(\"DocTotal\") FROM OPCH WHERE \"LicTradNum\" = '" + Cardcode + "' AND \"FolioNum\" = '" + lFolio + "' AND \"FolioPref\" = '" + Tipo + "'";
+                            Query = "SELECT SUM(\"DocTotal\") FROM OPCH WHERE \"CardCode\" = '" + Cardcode + "' AND \"FolioNum\" = '" + lFolio + "' AND \"FolioPref\" = '" + Tipo + "'";
                             break;
                         default:
-                            Query = "SELECT SUM(DocTotal) FROM OPCH WHERE LicTradNum = '" + Cardcode + "' AND FolioNum = '" + lFolio + "' AND FolioPref = '" + Tipo + "'";
+                            Query = "SELECT SUM(DocTotal) FROM OPCH WHERE CardCode = '" + Cardcode + "' AND FolioNum = '" + lFolio + "' AND FolioPref = '" + Tipo + "'";
                             break;
                     }
                 }
@@ -1553,7 +1555,7 @@ namespace Addon_Facturas_Proveedores.Comunes
                             Query += " INNER JOIN OPDN T3 ON T2.\"DocEntry\" = T3.\"DocEntry\" ";
                             Query += " INNER JOIN OCRD T4 ON T0.\"CardCode\" = T4.\"CardCode\" ";
                             Query += " WHERE T4.\"CardCode\" = '" + CardCode + "' AND T0.\"DocNum\" IN (" + Folio + ") AND T2.\"VisOrder\" = 0 ";
-                            Query += " AND T3.\"DocStatus\" = 'O' AND IFNULL(T3.\"FolioNum\", 0) <> 0";
+                            Query += " AND T3.\"DocStatus\" = 'O' ";// AND IFNULL(T3.\"FolioNum\", 0) <> 0";
                             break;
                         default:
                             Query = " SELECT SUM(T3.DocTotal), STRING_AGG(T3.FolioNum, ', ') ";
@@ -1563,7 +1565,7 @@ namespace Addon_Facturas_Proveedores.Comunes
                             Query += " INNER JOIN OPDN T3 ON T2.DocEntry = T3.DocEntry ";
                             Query += " INNER JOIN OCRD T4 ON T0.CardCode = T4.CardCode ";
                             Query += " WHERE T4.CardCode = '" + CardCode + "' AND T0.DocNum IN (" + Folio + ") AND T2.VisOrder = 0 ";
-                            Query += " AND T3.DocStatus = 'O' AND IFNULL(T3.FolioNum, 0) <> 0";
+                            Query += " AND T3.DocStatus = 'O' ";// AND IFNULL(T3.FolioNum, 0) <> 0";
                             break;
                     }
 
@@ -1571,22 +1573,22 @@ namespace Addon_Facturas_Proveedores.Comunes
 
 
                 }
-                else
-                {
-                    switch (Conexion_SBO.m_oCompany.DbServerType)
-                    {
-                        case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
-                            //Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"FolioNum\" IN (" + Folio + ") ";
-                            Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"DocNum\" IN (" + Folio + ") ";
-                            break;
-                        default:
-                            //Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND FolioNum IN (" + Folio + ") ";
-                            Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND DocNum IN (" + Folio + ") ";
-                            break;
-                    }
+                //else
+                //{
+                //    switch (Conexion_SBO.m_oCompany.DbServerType)
+                //    {
+                //        case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
+                //            //Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"FolioNum\" IN (" + Folio + ") ";
+                //            Query = "SELECT SUM(\"DocTotal\"), STRING_AGG(T3.\"FolioNum\", ', ') FROM OPDN WHERE \"CardCode\" = '" + CardCode + "' AND \"DocNum\" IN (" + Folio + ") ";
+                //            break;
+                //        default:
+                //            //Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND FolioNum IN (" + Folio + ") ";
+                //            Query = "SELECT SUM(DocTotal), STRING_AGG(T3.FolioNum, ', ') FROM OPDN WHERE CardCode = '" + CardCode + "' AND DocNum IN (" + Folio + ") ";
+                //            break;
+                //    }
 
                     
-                }
+                //}
 
                 oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
                 oRecordset.DoQuery(Query);
@@ -1836,7 +1838,7 @@ namespace Addon_Facturas_Proveedores.Comunes
             request.AddHeader("recinto", Recinto);
             request.AddHeader("tipoAccion", TipoAccion);
             request.AddHeader("vincularAlSii", "si");
-                        
+
             IRestResponse response = client.Execute(request);
 
             if (response.StatusDescription.Equals("OK"))
@@ -1856,7 +1858,7 @@ namespace Addon_Facturas_Proveedores.Comunes
                 result.Success = false;
                 result.Mensaje = "Error al procesar documento";
             }
-
+            result.Success = true;
             return result;
         }
 

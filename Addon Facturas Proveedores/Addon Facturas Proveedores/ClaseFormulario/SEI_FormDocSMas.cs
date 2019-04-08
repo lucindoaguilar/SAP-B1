@@ -287,7 +287,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
                     NroRef = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-1").Cells.Item(i).Specific).Value;
 
-                    ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Int64.Parse(Folio));
+                    ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Folio);// Int64.Parse(Folio));
                     rslt.Success = true;
                     if (rslt.Success)
                     {

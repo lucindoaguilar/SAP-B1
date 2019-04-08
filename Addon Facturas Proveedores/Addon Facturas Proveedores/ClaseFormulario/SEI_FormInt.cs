@@ -803,200 +803,221 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 if (responseDescarga.StatusDescription.Equals("OK"))
                 {
                     RootObjectDescarga d = JsonConvert.DeserializeObject<RootObjectDescarga>(responseDescarga.Content);
-                    Int32 IndexMatrix = 0;
-                    String CardCode = String.Empty;
-                    String DocEntryBase = String.Empty;
-                    String Query = String.Empty;
-                    Boolean existe = false;
-                    String TotalEM = String.Empty;
-                    String TotalOC = String.Empty;
-                    String FoliosEMSAP = String.Empty;
-
-                    string DocRef = null;
-                    string NroRef = null;
-                    string FecRef = null;
-                    string RzRef = null;
-
-                    strMensaje = d.mensaje;
-
-                    foreach (Comunes.Documento dto in d.documentos)
+                    if (d.documentos != null)
                     {
-                        if (!BuscarFacturasProveedores(dto.rutEmisor, dto.folio.ToString()))
+                        if (d.documentos.Count > 0)
                         {
-                            if (!dto.tipoDocumento.Equals(39) && !dto.tipoDocumento.Equals(41) && !dto.tipoDocumento.Equals(52))
+                            Int32 IndexMatrix = 0;
+                            String CardCode = String.Empty;
+                            String DocEntryBase = String.Empty;
+                            String Query = String.Empty;
+                            Boolean existe = false;
+                            String TotalEM = String.Empty;
+                            String TotalOC = String.Empty;
+                            String FoliosEMSAP = String.Empty;
+
+                            string DocRef = null;
+                            string NroRef = null;
+                            string FecRef = null;
+                            string RzRef = null;
+
+                            strMensaje = d.mensaje;
+
+                            foreach (Comunes.Documento dto in d.documentos)
                             {
-                                dtDoc.Rows.Add();
-                                dtDoc.SetValue("co_FebId", IndexMatrix, dto.febosId);
-                                dtDoc.SetValue("co_Rut", IndexMatrix, dto.rutEmisor);
-                                dtDoc.SetValue("co_RznSoc", IndexMatrix, dto.razonSocialEmisor);
-                                dtDoc.SetValue("co_Tipo", IndexMatrix, FuncionesComunes.ObtenerTipoDocumento(dto.tipoDocumento.ToString()));
-                                dtDoc.SetValue("co_Folio", IndexMatrix, dto.folio);
-                                dtDoc.SetValue("co_Fecha", IndexMatrix, dto.fechaEmision);
-                                dtDoc.SetValue("co_FechaR", IndexMatrix, dto.fechaRecepcion.Substring(0, 10));
-                                dtDoc.SetValue("co_Total", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", dto.montoTotal));
-                                dtDoc.SetValue("co_Estado", IndexMatrix, FuncionesComunes.ObtenerEstadoSII(dto.estadoSii));
-                                dtDoc.SetValue("co_Plazo", IndexMatrix, dto.plazo);
-
-                                if (dto.formaDePago != null)
+                                if (ValidarFormatDesca(dto))
                                 {
-                                    dtDoc.SetValue("co_Pago", IndexMatrix, FuncionesComunes.ObtenerFormaPago(dto.formaDePago.ToString()));
-                                }
-                                else
-                                {
-                                    dtDoc.SetValue("co_Pago", IndexMatrix, "No informado");
-                                }
-
-                                String ProveedorNR;
-                                CardCode = FuncionesComunes.ObtenerCardcode(dto.rutEmisor, out ProveedorNR);
-
-                                if (!String.IsNullOrEmpty(CardCode))
-                                {
-                                    dtDoc.SetValue("co_Exissn", IndexMatrix, "Y");
-                                    dtDoc.SetValue("co_Card", IndexMatrix, CardCode);
-                                    dtDoc.SetValue("co_ProvNR", IndexMatrix, ProveedorNR);
-                                }
-                                else
-                                {
-                                    dtDoc.SetValue("co_Exissn", IndexMatrix, "N");
-                                }
-
-                                // Descargar XML
-                                var clientGetXML = new RestClient();
-                                var requestGetXML = new RestRequest(String.Format(ConfigurationManager.AppSettings["GetXML"], dto.febosId), Method.GET);
-
-                                requestGetXML.RequestFormat = DataFormat.Json;
-                                requestGetXML.AddHeader("token", FuncionesComunes.ObtenerToken());
-                                requestGetXML.AddHeader("empresa", FuncionesComunes.ObtenerRut());
-                                requestGetXML.AddHeader("xml", "si");
-                                requestGetXML.AddHeader("xmlFirmado", "si");
-                                requestGetXML.AddHeader("incrustar", "si");
-
-                                IRestResponse responseGetXML = clientGetXML.Execute(requestGetXML);
-
-                                if (responseGetXML.StatusDescription.Equals("OK"))
-                                {
-                                    RootObjectGetXML x = JsonConvert.DeserializeObject<RootObjectGetXML>(responseGetXML.Content);
-                                    byte[] datos = Convert.FromBase64String(x.xmlData);
-                                    Encoding iso = Encoding.GetEncoding("ISO-8859-1");
-                                    String DecodeString = iso.GetString(datos);
-
-                                    ResultMessage result = FuncionesComunes.ObtenerDTE(DecodeString);
-
-                                    if (result.Success)
+                                    if (!BuscarFacturasProveedores(dto.rutEmisor, dto.folio.ToString()))
                                     {
-                                        DTE objDTE = (DTE)result.DTE;
-
-                                        if (objDTE.Referencia.Count > 0)
+                                        if (!dto.tipoDocumento.Equals(39) && !dto.tipoDocumento.Equals(41) && !dto.tipoDocumento.Equals(52))
                                         {
+                                            if (string.IsNullOrEmpty(dto.fechaEmision))
+                                                dto.fechaEmision = "1900-01-01 00:00:00.0";
+                                            if (string.IsNullOrEmpty(dto.fechaRecepcion))
+                                                dto.fechaRecepcion = "1900-01-01 00:00:00.0";
+                                            dtDoc.Rows.Add();
+                                            dtDoc.SetValue("co_FebId", IndexMatrix, dto.febosId);
+                                            dtDoc.SetValue("co_Rut", IndexMatrix, dto.rutEmisor);
+                                            dtDoc.SetValue("co_RznSoc", IndexMatrix, dto.razonSocialEmisor);
+                                            dtDoc.SetValue("co_Tipo", IndexMatrix, FuncionesComunes.ObtenerTipoDocumento(dto.tipoDocumento.ToString()));
+                                            dtDoc.SetValue("co_Folio", IndexMatrix, dto.folio);
+                                            dtDoc.SetValue("co_Fecha", IndexMatrix, dto.fechaEmision);
+                                            dtDoc.SetValue("co_FechaR", IndexMatrix, dto.fechaRecepcion.Substring(0, 10));
+                                            dtDoc.SetValue("co_Total", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", dto.montoTotal));
+                                            dtDoc.SetValue("co_Estado", IndexMatrix, FuncionesComunes.ObtenerEstadoSII(dto.estadoSii));
+                                            dtDoc.SetValue("co_Plazo", IndexMatrix, dto.plazo);
 
-                                            RefOC = new List<Referencia>();
-                                            RefEM = new List<Referencia>();
-
-                                            RefOC = objDTE.Referencia.Where(i => i.TpoDocRef == "801").ToList();
-                                            RefEM = objDTE.Referencia.Where(i => i.TpoDocRef == "52").ToList();
-
-                                            if (RefEM.Count > 0)
+                                            if (dto.formaDePago != null)
                                             {
-                                                //dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
-                                                string FoliosEM = string.Join(", ", RefEM.Select(z => z.FolioRef));
-                                                // Referencia entrada
-                                                DocRef = string.Join(", ", RefEM.Select(z => z.FolioRef));
-                                                NroRef = string.Join(", ", RefEM.Select(z => z.CodRef));
-                                                FecRef = string.Join(", ", RefEM.Select(z => z.FchRef));
-                                                RzRef = string.Join(", ", RefEM.Select(z => z.RazonRef));
-                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
-                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
-                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
-                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
-
-                                                existe = FuncionesComunes.ExisteEntradaMercancia("52", FoliosEM, CardCode, ref TotalEM, ref FoliosEMSAP);
-
-                                                if (existe)
-                                                {
-                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
-                                                    dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
-                                                    dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
-                                                    //Referecia
-                                                    
-                                                }
-                                                else
-                                                {
-                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
-                                                }
-
+                                                dtDoc.SetValue("co_Pago", IndexMatrix, FuncionesComunes.ObtenerFormaPago(dto.formaDePago.ToString()));
                                             }
-                                            else if (RefOC.Count > 0)
+                                            else
                                             {
-                                                string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosOC, CardCode, ref TotalEM, ref FoliosEMSAP);
-
-                                                // Referencia orden de compra
-                                                DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
-                                                FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
-                                                RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
-                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
-                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
-                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
-                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
-
-                                                if (existe)
-                                                {
-                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
-                                                    dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
-                                                    dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
-
-                                                }
-                                                else
-                                                {
-                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
-                                                }
-                                            }
-                                            if (RefOC.Count > 0)
-                                            {
-                                                dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
-
-                                                string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                dtDoc.SetValue("co_Foliooc", IndexMatrix, FoliosOC);
-                                                existe = FuncionesComunes.ExisteReferencia("801", FoliosOC, CardCode, ref TotalOC, String.Empty);
-                                                if (existe)
-                                                {
-                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                    dtDoc.SetValue("co_Exisoc", IndexMatrix, "Y");
-                                                    dtDoc.SetValue("co_Totaloc", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalOC)));
-                                                }
-                                                else
-                                                {
-                                                    dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
-                                                }
+                                                dtDoc.SetValue("co_Pago", IndexMatrix, "No informado");
                                             }
 
+                                            String ProveedorNR;
+                                            CardCode = FuncionesComunes.ObtenerCardcode(dto.rutEmisor, out ProveedorNR);
+
+                                            if (!String.IsNullOrEmpty(CardCode))
+                                            {
+                                                dtDoc.SetValue("co_Exissn", IndexMatrix, "Y");
+                                                dtDoc.SetValue("co_Card", IndexMatrix, CardCode);
+                                                dtDoc.SetValue("co_ProvNR", IndexMatrix, ProveedorNR);
+                                            }
+                                            else
+                                            {
+                                                dtDoc.SetValue("co_Exissn", IndexMatrix, "N");
+                                            }
+
+                                            // Descargar XML
+                                            var clientGetXML = new RestClient();
+                                            var requestGetXML = new RestRequest(String.Format(ConfigurationManager.AppSettings["GetXML"], dto.febosId), Method.GET);
+
+                                            requestGetXML.RequestFormat = DataFormat.Json;
+                                            requestGetXML.AddHeader("token", FuncionesComunes.ObtenerToken());
+                                            requestGetXML.AddHeader("empresa", FuncionesComunes.ObtenerRut());
+                                            requestGetXML.AddHeader("xml", "si");
+                                            requestGetXML.AddHeader("xmlFirmado", "si");
+                                            requestGetXML.AddHeader("incrustar", "si");
+
+                                            IRestResponse responseGetXML = clientGetXML.Execute(requestGetXML);
+
+                                            if (responseGetXML.StatusDescription.Equals("OK"))
+                                            {
+                                                RootObjectGetXML x = JsonConvert.DeserializeObject<RootObjectGetXML>(responseGetXML.Content);
+                                                byte[] datos = Convert.FromBase64String(x.xmlData);
+                                                Encoding iso = Encoding.GetEncoding("ISO-8859-1");
+                                                String DecodeString = iso.GetString(datos);
+
+                                                ResultMessage result = FuncionesComunes.ObtenerDTE(DecodeString);
+
+                                                if (result.Success)
+                                                {
+                                                    DTE objDTE = (DTE)result.DTE;
+
+                                                    if (objDTE.Referencia.Count > 0)
+                                                    {
+
+                                                        RefOC = new List<Referencia>();
+                                                        RefEM = new List<Referencia>();
+
+                                                        RefOC = objDTE.Referencia.Where(i => i.TpoDocRef == "801").ToList();
+                                                        RefEM = objDTE.Referencia.Where(i => i.TpoDocRef == "52").ToList();
+
+                                                        if (RefEM.Count > 0)
+                                                        {
+                                                            //dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
+                                                            string FoliosEM = string.Join(", ", RefEM.Select(z => z.FolioRef));
+                                                            // Referencia entrada
+                                                            DocRef = string.Join(", ", RefEM.Select(z => z.FolioRef));
+                                                            NroRef = string.Join(", ", RefEM.Select(z => z.CodRef));
+                                                            FecRef = string.Join(", ", RefEM.Select(z => z.FchRef));
+                                                            RzRef = string.Join(", ", RefEM.Select(z => z.RazonRef));
+                                                            dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                            dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                            dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                            dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+
+                                                            existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosEM, CardCode, ref TotalEM, ref FoliosEMSAP);
+
+                                                            if (existe)
+                                                            {
+                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
+                                                                dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
+                                                                dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
+                                                                //Referecia
+
+                                                            }
+                                                            else
+                                                            {
+                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
+                                                            }
+
+                                                        }
+                                                        if (RefOC.Count > 0)
+                                                        {
+                                                            string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                            existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosOC, CardCode, ref TotalEM, ref FoliosEMSAP);
+
+                                                            // Referencia orden de compra
+                                                            DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                            NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
+                                                            FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
+                                                            RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
+                                                            dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                            dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                            dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                            dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+
+                                                            if (existe)
+                                                            {
+                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
+                                                                dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
+                                                                dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
+
+                                                            }
+                                                            else
+                                                            {
+                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
+                                                            }
+                                                        }
+                                                        if (RefOC.Count > 0)
+                                                        {
+                                                            dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
+
+                                                            string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                            dtDoc.SetValue("co_Foliooc", IndexMatrix, FoliosOC);
+                                                            existe = FuncionesComunes.ExisteReferencia("801", FoliosOC, CardCode, ref TotalOC, String.Empty);
+                                                            if (existe)
+                                                            {
+                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                dtDoc.SetValue("co_Exisoc", IndexMatrix, "Y");
+                                                                dtDoc.SetValue("co_Totaloc", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalOC)));
+                                                            }
+                                                            else
+                                                            {
+                                                                dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
+                                                            }
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        dtDoc.SetValue("co_Refoc", IndexMatrix, "N");
+                                                        dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
+                                                        dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
+                                                    }
+
+                                                    DTEMatrix objDteMatrix = new DTEMatrix();
+                                                    objDteMatrix.FebosID = dto.febosId;
+                                                    objDteMatrix.objDTE = objDTE;
+                                                    ListaDTEMatrix.ListaDTE.Add(objDteMatrix);
+                                                }
+                                            }
+
+                                            IndexMatrix++;
                                         }
-                                        else
-                                        {
-                                            dtDoc.SetValue("co_Refoc", IndexMatrix, "N");
-                                            dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
-                                            dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
-                                        }
-
-                                        DTEMatrix objDteMatrix = new DTEMatrix();
-                                        objDteMatrix.FebosID = dto.febosId;
-                                        objDteMatrix.objDTE = objDTE;
-                                        ListaDTEMatrix.ListaDTE.Add(objDteMatrix);
                                     }
                                 }
-
-                                IndexMatrix++;
                             }
+
+                            oMatrix.LoadFromDataSource();
+                            Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Información descargada correctamente", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                        }
+                        else
+                        {
+                            Conexion_SBO.m_SBO_Appl.StatusBar.SetText("No existe Información para el rango de fecha seleccionado! ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
                         }
                     }
-
-                    oMatrix.LoadFromDataSource();
-                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Información descargada correctamente", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                    else
+                    {
+                        Conexion_SBO.m_SBO_Appl.StatusBar.SetText("No existe Información para el rango de fecha seleccionado! ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                    }
                 }
 
                 oForm.Freeze(false);
@@ -1130,7 +1151,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     Plazo = oMatrix.Columns.Item("co_Plazo").Cells.Item(index).Specific.Value;
                     Boolean esNumero = Int32.TryParse(Plazo, out iPlazo);
 
-                    ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Int64.Parse(Folio));
+                    ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Folio); //Int64.Parse(Folio));
 
                     if (rslt.Success)
                     {
@@ -1681,14 +1702,14 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
                         Query = " SELECT T1.\"DocEntry\", T1.\"LineNum\", T1.\"ObjType\" ";
                         Query += " FROM OPDN T0 ";
-                        Query += " INNER JOIN PDN1 T1 ON T0.\"DocEntry\" = T1.\"DocEntry\" ";
-                        Query += " WHERE T0.\"CardCode\" = '" + CardCode + "' AND T0.\"FolioNum\" IN (" + Folios + ") ";
+                        Query += " INNER JOIN PDN1 T1 ON T0.\"DocEntry\" = T1.\"DocEntry\" ,OPOR T2 ";
+                        Query += " WHERE T0.\"CardCode\" = '" + CardCode + "' AND T2.\"DocNum\" = " + Folios + "  ";// AND T0.\"FolioNum\" IN (" + Folios + ") ";
                         break;
                     default:
                         Query = " SELECT T1.DocEntry, T1.LineNum, T1.ObjType ";
                         Query += " FROM OPDN T0 ";
-                        Query += " INNER JOIN PDN1 T1 ON T0.DocEntry = T1.DocEntry ";
-                        Query += " WHERE T0.CardCode = '" + CardCode + "' AND T0.FolioNum IN (" + Folios + ") ";
+                        Query += " INNER JOIN PDN1 T1 ON T0.DocEntry = T1.DocEntry ,OPOR T2 ";
+                        Query += " WHERE T0.CardCode = '" + CardCode + "' AND T2.\"DocNum\" = " + Folios + "  ";//  AND T0.FolioNum IN (" + Folios + ") ";
                         break;
                 }
 
@@ -1723,6 +1744,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             String Path = String.Empty;
             Int32 iPlazo = 0;
             String FoliosEM = string.Empty;
+            string sFolioOC = null;
 
             SAPbouiCOM.Matrix oMatrix = null;
             DTE objDTE = null;
@@ -1740,9 +1762,10 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 FebId = oMatrix.Columns.Item("co_FebId").Cells.Item(index).Specific.Value;
                 Plazo = oMatrix.Columns.Item("co_Plazo").Cells.Item(index).Specific.Value;
                 FoliosEM = oMatrix.Columns.Item("co_Folioem").Cells.Item(index).Specific.Value;
+                sFolioOC = oMatrix.Columns.Item("co_Foliooc").Cells.Item(index).Specific.Value;
                 Boolean esNumero = Int32.TryParse(Plazo, out iPlazo);
 
-                ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Int64.Parse(Folio));
+                ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Folio);// Int64.Parse(Folio));
                 if (rslt.Success)
                 {
                     objDTE = ListaDTEMatrix.ListaDTE.Where(i => i.FebosID == FebId).Select(i => i.objDTE).SingleOrDefault();
@@ -1799,7 +1822,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         oDoc.UserFields.Fields.Item("U_SEI_FEBOSID").Value = FebId;
 
                         oRec = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                        oRec.DoQuery(QueryLineasEntradaMercancia(oDoc.CardCode, FoliosEM));
+                        oRec.DoQuery(QueryLineasEntradaMercancia(oDoc.CardCode, sFolioOC));// FoliosEM));
 
                         Int32 indexDet = 0;
 
@@ -2294,6 +2317,43 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 FuncionesComunes.LiberarObjetoGenerico(oRecordset);
                 GC.Collect();
             }
+        }
+
+        private static bool ValidarFormatDesca(Comunes.Documento doc)
+        {
+            bool blValido = false;
+            string FolioRef = null;
+            try
+            {
+                FolioRef = doc.folio;
+
+                int FolioVal;
+                bool success = Int32.TryParse(FolioRef.ToString(), out FolioVal);
+                if (success)
+                    blValido = true;
+                else
+                    blValido = false;
+
+
+            //    {
+            //        get { return fechaEmision; }
+            //        set
+            //{
+            //            if (fechaEmision != value)
+            //            {
+            //                fechaEmision = value;
+            //            }
+            //            else
+            //                fechaEmision = "1900-01-01 00:00:00.0";
+            //        }
+            //    }
+            }
+            catch
+            {
+
+            }
+
+            return blValido;
         }
 
         private static bool IntegrarMaxivo(SAPbouiCOM.Form oForm)

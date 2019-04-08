@@ -262,7 +262,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             SAPbobsCOM.Documents oDoc = null;
             try
             {
-                ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Int64.Parse(Folio));
+                ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Folio);// Int64.Parse(Folio));
                 if (rslt.Success)
                 {
                     objDTE = ListaDTEMatrix.ListaDTE.Where(i => i.FebosID == FebId).Select(i => i.objDTE).SingleOrDefault();

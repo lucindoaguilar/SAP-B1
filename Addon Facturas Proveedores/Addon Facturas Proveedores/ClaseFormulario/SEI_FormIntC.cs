@@ -692,7 +692,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
             if (FebId.Equals(ListaFilas.ListFilas[0].FebosId))
             {
-                ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Int64.Parse(Folio));
+                ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Folio);// Int64.Parse(Folio));
 
                 if (rslt.Success)
                 {
