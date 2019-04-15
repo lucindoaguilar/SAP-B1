@@ -294,100 +294,111 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         //objDTE = ListaDTEMatrix.ListaDTE.Where(x => x.FebosID == FebId).Select(x => x.objDTE).SingleOrDefault();
                         //if (objDTE != null)
                         //{
-                            switch (Tipo)
+                        switch (Tipo)
+                        {
+                            case "33":
+                                oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseInvoices);
+                                break;
+                            case "34":
+                                oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseInvoices);
+                                break;
+                            case "56":
+                                oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseInvoices);
+                                break;
+                            case "61":
+                                oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseDeliveryNotes);
+                                break;
+                        }
+
+                        oDoc.CardCode = CardCode;
+                        //oDoc.CardName = FuncionesComunes.ObtenerCardName(RutEmisor, oDoc.CardCode);
+                        switch (Tipo)
+                        {
+                            case "33":
+                                oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
+                                break;
+                            case "34":
+                                oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
+                                break;
+                            case "52":
+                                oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseDeliveryNotes;
+                                break;
+                            case "56":
+                                oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
+                                break;
+                            case "61":
+                                oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseCreditNotes;
+                                break;
+                            default:
+                                oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
+                                break;
+                        }
+
+                        oDoc.DocType = SAPbobsCOM.BoDocumentTypes.dDocument_Service;
+
+                        oDoc.DocDate = Convert.ToDateTime(FchEmis);
+                        oDoc.DocDueDate = Convert.ToDateTime(FchVenc);
+                        oDoc.DocTotal = Convert.ToDouble(MntTotal);
+                        oDoc.FolioNumber = Convert.ToInt32(Folio);
+                        oDoc.FolioPrefixString = Tipo;
+                        oDoc.Indicator = Tipo;
+                        oDoc.UserFields.Fields.Item("U_SEI_FEBOSID").Value = FebId;
+                        oDoc.NumAtCard = NroRef;
+
+                        oDoc.Lines.ItemDescription = Descripcion;
+                        oDoc.Lines.AccountCode = Cuenta;
+                        oDoc.Lines.LineTotal = Convert.ToDouble(Convert.ToDouble(MntTotal) - Convert.ToDouble(IVA));
+                        switch (Tipo)
+                        {
+                            case "34":
+                                oDoc.Lines.TaxCode = "IVA_EXE";
+                                break;
+                            default:
+
+                                break;
+                        }
+
+                        if (!string.IsNullOrEmpty(Dim1)) oDoc.Lines.CostingCode = Dim1;
+                        if (!string.IsNullOrEmpty(Dim2)) oDoc.Lines.CostingCode2 = Dim2;
+                        if (!string.IsNullOrEmpty(Dim3)) oDoc.Lines.CostingCode3 = Dim3;
+                        if (!string.IsNullOrEmpty(Dim4)) oDoc.Lines.CostingCode4 = Dim4;
+                        if (!string.IsNullOrEmpty(Dim5)) oDoc.Lines.CostingCode5 = Dim5;
+
+
+                        Int32 RetVal = oDoc.Add();
+                        String Mensaje = String.Empty;
+                        if (RetVal.Equals(0))
+                        {
+                            rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                            if (rslt.Success)
                             {
-                                case "33":
-                                    oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseInvoices);
-                                    break;
-                                case "34":
-                                    oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseInvoices);
-                                    break;
-                                case "56":
-                                    oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseInvoices);
-                                    break;
-                                case "61":
-                                    oDoc = (SAPbobsCOM.Documents)Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oPurchaseDeliveryNotes);
-                                    break;
-                            }
-
-                            oDoc.CardCode = CardCode;
-                            //oDoc.CardName = FuncionesComunes.ObtenerCardName(RutEmisor, oDoc.CardCode);
-                            switch (Tipo)
-                            {
-                                case "33":
-                                    oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
-                                    break;
-                                case "34":
-                                    oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
-                                    break;
-                                case "52":
-                                    oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseDeliveryNotes;
-                                    break;
-                                case "56":
-                                    oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
-                                    break;
-                                case "61":
-                                    oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseCreditNotes;
-                                    break;
-                                default:
-                                    oDoc.DocObjectCode = SAPbobsCOM.BoObjectTypes.oPurchaseInvoices;
-                                    break;
-                            }
-
-                            oDoc.DocType = SAPbobsCOM.BoDocumentTypes.dDocument_Service;
-
-                            oDoc.DocDate = Convert.ToDateTime(FchEmis);
-                            oDoc.DocDueDate = Convert.ToDateTime(FchVenc);
-                            oDoc.DocTotal = Convert.ToDouble(MntTotal);
-                            oDoc.FolioNumber = Convert.ToInt32(Folio);
-                            oDoc.FolioPrefixString = Tipo;
-                            oDoc.Indicator = Tipo;
-                            oDoc.UserFields.Fields.Item("U_SEI_FEBOSID").Value = FebId;
-                            oDoc.NumAtCard = NroRef;
-
-                            oDoc.Lines.ItemDescription = Descripcion;
-                            oDoc.Lines.AccountCode = Cuenta;
-                            oDoc.Lines.LineTotal = Convert.ToDouble(Convert.ToDouble(MntTotal) - Convert.ToDouble(IVA));
-                            switch (Tipo)
-                            {
-                                case "34":
-                                    oDoc.Lines.TaxCode = "IVA_EXE";
-                                    break;
-                                default:
-
-                                    break;
-                            }
-
-                            if (!string.IsNullOrEmpty(Dim1)) oDoc.Lines.CostingCode = Dim1;
-                            if (!string.IsNullOrEmpty(Dim2)) oDoc.Lines.CostingCode2 = Dim2;
-                            if (!string.IsNullOrEmpty(Dim3)) oDoc.Lines.CostingCode3 = Dim3;
-                            if (!string.IsNullOrEmpty(Dim4)) oDoc.Lines.CostingCode4 = Dim4;
-                            if (!string.IsNullOrEmpty(Dim5)) oDoc.Lines.CostingCode5 = Dim5;
-
-
-                            Int32 RetVal = oDoc.Add();
-                            String Mensaje = String.Empty;
-                            if (RetVal.Equals(0))
-                            {
+                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Exito: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                                // Aceptacion comercial
                                 rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                                 if (rslt.Success)
                                 {
-                                        Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Exito: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.",Folio, Tipo, RutEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
                                 }
                                 else
                                 {
-                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Reparo: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor + " Se integro, pero no se completo proceso de intercambio.", SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
-                                    //file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", Folio, Tipo, RutEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
                                 }
+
                             }
                             else
                             {
-                                Int32 ErrCode = 0;
-                                String ErrMsj = String.Empty;
-                                Conexion_SBO.m_oCompany.GetLastError(out ErrCode, out ErrMsj);
-                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Error: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor + " No se integro " + ErrMsj, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
-                                //file.WriteLine(String.Format("Error: El DTE {0} Tipo {1} de {2}-{3} No se integro. {4}", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor, ErrMsj));
+                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Reparo: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor + " Se integro, pero no se completo proceso de intercambio.", SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
+                                //file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
                             }
+                        }
+                        else
+                        {
+                            Int32 ErrCode = 0;
+                            String ErrMsj = String.Empty;
+                            Conexion_SBO.m_oCompany.GetLastError(out ErrCode, out ErrMsj);
+                            Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Error: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor + " No se integro " + ErrMsj, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
+                            //file.WriteLine(String.Format("Error: El DTE {0} Tipo {1} de {2}-{3} No se integro. {4}", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor, ErrMsj));
+                        }
                         //}
                     }
                 }

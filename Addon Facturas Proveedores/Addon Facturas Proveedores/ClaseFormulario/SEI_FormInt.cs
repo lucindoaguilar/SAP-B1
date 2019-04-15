@@ -162,6 +162,9 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             oForm.DataSources.UserDataSources.Add("dsHasta", SAPbouiCOM.BoDataType.dt_DATE);
             oEditText.DataBind.SetBound(true, "", "dsHasta");
 
+
+
+
             // Boton para obtener informacion
             oItem = oForm.Items.Add("Obtener", SAPbouiCOM.BoFormItemTypes.it_BUTTON);
             oItem.Left = Left + oForm.Items.Item("stDesde").Width + oForm.Items.Item("etDesde").Width + oForm.Items.Item("stHasta").Width + oForm.Items.Item("etHasta").Width + 40;
@@ -211,6 +214,27 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             oComboBox.ValidValues.Add("61", "Nota de Crédito Electrónica");
             oComboBox.Select("33", SAPbouiCOM.BoSearchKey.psk_ByValue);
             //oComboBox.ExpandType = SAPbouiCOM.BoExpandType.et_DescriptionOnly;
+
+
+            // static stEstado Documentos en Febos
+            oItem = oForm.Items.Add("stEstado", SAPbouiCOM.BoFormItemTypes.it_STATIC);
+            itemST = ((SAPbouiCOM.StaticText)(oItem.Specific));
+            itemST.Item.Top = Top;
+            itemST.Item.Width = 80;
+            oItem.Left = Left + oForm.Items.Item("stTipo").Width + oForm.Items.Item("etTipo").Width + 40;
+            itemST.Caption = "Estado del Documento:";
+
+            // Campo  Tipo DTE etTipo
+            oItem = oForm.Items.Add("etEstado", SAPbouiCOM.BoFormItemTypes.it_COMBO_BOX);
+            oItem.Top = Top;
+            oItem.Left = Left + oForm.Items.Item("stTipo").Width + oForm.Items.Item("etTipo").Width + oForm.Items.Item("stEstado").Width + 40;
+            oItem.Width = 110;
+            SAPbouiCOM.ComboBox oComboBoxE = ((SAPbouiCOM.ComboBox)oItem.Specific);
+            //oComboBox.ValidValues.Add("", "");
+            oComboBoxE.ValidValues.Add("Y", "Incompleto solo consulta");
+            oComboBoxE.ValidValues.Add("N", "Completado");
+            oComboBoxE.Select("N", SAPbouiCOM.BoSearchKey.psk_ByValue);
+            oComboBoxE.ExpandType = SAPbouiCOM.BoExpandType.et_DescriptionOnly;
 
 
             Top += 20;
@@ -712,6 +736,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             string strMensaje = "";
             List<Referencia> RefOC = null;
             List<Referencia> RefEM = null;
+            string sEstado = null;
 
             ListaDTEMatrix.ListaDTE.Clear();
             Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Descargando información. Espere unos momentos", SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
@@ -729,9 +754,11 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 String FechaInicial = String.Empty;
                 String Filtros = String.Empty;
 
+
+                sEstado = ((SAPbouiCOM.ComboBox)(oForm.Items.Item("etEstado").Specific)).Value;
                 // armar filtro de consulta
                 // Rut receptor para documentos recibidos y estado comercial sin estado
-                Filtros = String.Format("rutReceptor:{0}|estadoComercial:0|incompleto:N", FuncionesComunes.ObtenerRut());
+                Filtros = String.Format("rutReceptor:{0}|estadoComercial:0|incompleto:" +sEstado+ "", FuncionesComunes.ObtenerRut());
 
                 // Tipo de documento
                 SAPbouiCOM.ComboBox oCombobox = oForm.Items.Item("etTipo").Specific;

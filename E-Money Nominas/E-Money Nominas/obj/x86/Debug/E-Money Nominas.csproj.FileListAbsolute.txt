@@ -1,0 +1,10 @@
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\E-Money Nominas.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\E_Money_Nominas.Properties.Resources.resources
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\E-Money Nominas.csproj.GenerateResource.Cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\bin\Debug\E-Money Nominas.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\bin\Debug\E-Money Nominas.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\E-Money Nominas.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\obj\x86\Debug\E-Money Nominas.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\E-MONEY\E-Money Nominas\E-Money Nominas\bin\Debug\E-Money Nominas.exe.config
