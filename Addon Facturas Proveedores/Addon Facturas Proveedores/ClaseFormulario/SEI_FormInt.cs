@@ -220,14 +220,14 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             oItem = oForm.Items.Add("stEstado", SAPbouiCOM.BoFormItemTypes.it_STATIC);
             itemST = ((SAPbouiCOM.StaticText)(oItem.Specific));
             itemST.Item.Top = Top;
-            itemST.Item.Width = 80;
-            oItem.Left = Left + oForm.Items.Item("stTipo").Width + oForm.Items.Item("etTipo").Width + 40;
+            itemST.Item.Width = 120;
+            oItem.Left = Left + oForm.Items.Item("stTipo").Width + oForm.Items.Item("etTipo").Width + 228;
             itemST.Caption = "Estado del Documento:";
 
             // Campo  Tipo DTE etTipo
             oItem = oForm.Items.Add("etEstado", SAPbouiCOM.BoFormItemTypes.it_COMBO_BOX);
             oItem.Top = Top;
-            oItem.Left = Left + oForm.Items.Item("stTipo").Width + oForm.Items.Item("etTipo").Width + oForm.Items.Item("stEstado").Width + 40;
+            oItem.Left = Left + oForm.Items.Item("stTipo").Width + oForm.Items.Item("etTipo").Width + oForm.Items.Item("stEstado").Width + 225;
             oItem.Width = 110;
             SAPbouiCOM.ComboBox oComboBoxE = ((SAPbouiCOM.ComboBox)oItem.Specific);
             //oComboBox.ValidValues.Add("", "");
@@ -913,117 +913,124 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                             if (responseGetXML.StatusDescription.Equals("OK"))
                                             {
                                                 RootObjectGetXML x = JsonConvert.DeserializeObject<RootObjectGetXML>(responseGetXML.Content);
-                                                byte[] datos = Convert.FromBase64String(x.xmlData);
-                                                Encoding iso = Encoding.GetEncoding("ISO-8859-1");
-                                                String DecodeString = iso.GetString(datos);
-
-                                                ResultMessage result = FuncionesComunes.ObtenerDTE(DecodeString);
-
-                                                if (result.Success)
+                                                if (x.xmlData == null)
                                                 {
-                                                    DTE objDTE = (DTE)result.DTE;
+                                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Documentos incompletos. en Febos! ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                                                }
+                                                else
+                                                {
+                                                    byte[] datos = Convert.FromBase64String(x.xmlData);
+                                                    Encoding iso = Encoding.GetEncoding("ISO-8859-1");
+                                                    String DecodeString = iso.GetString(datos);
 
-                                                    if (objDTE.Referencia.Count > 0)
+                                                    ResultMessage result = FuncionesComunes.ObtenerDTE(DecodeString);
+
+                                                    if (result.Success)
                                                     {
+                                                        DTE objDTE = (DTE)result.DTE;
 
-                                                        RefOC = new List<Referencia>();
-                                                        RefEM = new List<Referencia>();
-
-                                                        RefOC = objDTE.Referencia.Where(i => i.TpoDocRef == "801").ToList();
-                                                        RefEM = objDTE.Referencia.Where(i => i.TpoDocRef == "52").ToList();
-
-                                                        if (RefEM.Count > 0)
+                                                        if (objDTE.Referencia.Count > 0)
                                                         {
-                                                            //dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
-                                                            string FoliosEM = string.Join(", ", RefEM.Select(z => z.FolioRef));
-                                                            // Referencia entrada
-                                                            DocRef = string.Join(", ", RefEM.Select(z => z.FolioRef));
-                                                            NroRef = string.Join(", ", RefEM.Select(z => z.CodRef));
-                                                            FecRef = string.Join(", ", RefEM.Select(z => z.FchRef));
-                                                            RzRef = string.Join(", ", RefEM.Select(z => z.RazonRef));
-                                                            dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
-                                                            dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
-                                                            dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
-                                                            dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
 
-                                                            existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosEM, CardCode, ref TotalEM, ref FoliosEMSAP);
+                                                            RefOC = new List<Referencia>();
+                                                            RefEM = new List<Referencia>();
 
-                                                            if (existe)
+                                                            RefOC = objDTE.Referencia.Where(i => i.TpoDocRef == "801").ToList();
+                                                            RefEM = objDTE.Referencia.Where(i => i.TpoDocRef == "52").ToList();
+
+                                                            if (RefEM.Count > 0)
                                                             {
-                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
-                                                                dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
-                                                                dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
-                                                                //Referecia
+                                                                //dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
+                                                                string FoliosEM = string.Join(", ", RefEM.Select(z => z.FolioRef));
+                                                                // Referencia entrada
+                                                                DocRef = string.Join(", ", RefEM.Select(z => z.FolioRef));
+                                                                NroRef = string.Join(", ", RefEM.Select(z => z.CodRef));
+                                                                FecRef = string.Join(", ", RefEM.Select(z => z.FchRef));
+                                                                RzRef = string.Join(", ", RefEM.Select(z => z.RazonRef));
+                                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+
+                                                                existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosEM, CardCode, ref TotalEM, ref FoliosEMSAP);
+
+                                                                if (existe)
+                                                                {
+                                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
+                                                                    dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
+                                                                    dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
+                                                                    //Referecia
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
+                                                                }
 
                                                             }
-                                                            else
+                                                            if (RefOC.Count > 0)
                                                             {
-                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
+                                                                string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                                existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosOC, CardCode, ref TotalEM, ref FoliosEMSAP);
+
+                                                                // Referencia orden de compra
+                                                                DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                                NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
+                                                                FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
+                                                                RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
+                                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+
+                                                                if (existe)
+                                                                {
+                                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
+                                                                    dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
+                                                                    dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                    dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
+                                                                }
+                                                            }
+                                                            if (RefOC.Count > 0)
+                                                            {
+                                                                dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
+
+                                                                string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                                dtDoc.SetValue("co_Foliooc", IndexMatrix, FoliosOC);
+                                                                existe = FuncionesComunes.ExisteReferencia("801", FoliosOC, CardCode, ref TotalOC, String.Empty);
+                                                                if (existe)
+                                                                {
+                                                                    //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
+                                                                    dtDoc.SetValue("co_Exisoc", IndexMatrix, "Y");
+                                                                    dtDoc.SetValue("co_Totaloc", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalOC)));
+                                                                }
+                                                                else
+                                                                {
+                                                                    dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
+                                                                }
                                                             }
 
                                                         }
-                                                        if (RefOC.Count > 0)
+                                                        else
                                                         {
-                                                            string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                            existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosOC, CardCode, ref TotalEM, ref FoliosEMSAP);
-
-                                                            // Referencia orden de compra
-                                                            DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                            NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
-                                                            FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
-                                                            RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
-                                                            dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
-                                                            dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
-                                                            dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
-                                                            dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
-
-                                                            if (existe)
-                                                            {
-                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "Y");
-                                                                dtDoc.SetValue("co_Folioem", IndexMatrix, FoliosEMSAP);
-                                                                dtDoc.SetValue("co_Totalem", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalEM)));
-
-                                                            }
-                                                            else
-                                                            {
-                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                                dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
-                                                            }
-                                                        }
-                                                        if (RefOC.Count > 0)
-                                                        {
-                                                            dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
-
-                                                            string FoliosOC = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                            dtDoc.SetValue("co_Foliooc", IndexMatrix, FoliosOC);
-                                                            existe = FuncionesComunes.ExisteReferencia("801", FoliosOC, CardCode, ref TotalOC, String.Empty);
-                                                            if (existe)
-                                                            {
-                                                                //dtDoc.SetValue("co_Base", IndexMatrix, DocEntryBase);
-                                                                dtDoc.SetValue("co_Exisoc", IndexMatrix, "Y");
-                                                                dtDoc.SetValue("co_Totaloc", IndexMatrix, String.Format(System.Globalization.CultureInfo.GetCultureInfo("es-CL"), "{0:C0}", Convert.ToDouble(TotalOC)));
-                                                            }
-                                                            else
-                                                            {
-                                                                dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
-                                                            }
+                                                            dtDoc.SetValue("co_Refoc", IndexMatrix, "N");
+                                                            dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
+                                                            dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
                                                         }
 
+                                                        DTEMatrix objDteMatrix = new DTEMatrix();
+                                                        objDteMatrix.FebosID = dto.febosId;
+                                                        objDteMatrix.objDTE = objDTE;
+                                                        ListaDTEMatrix.ListaDTE.Add(objDteMatrix);
                                                     }
-                                                    else
-                                                    {
-                                                        dtDoc.SetValue("co_Refoc", IndexMatrix, "N");
-                                                        dtDoc.SetValue("co_Exisoc", IndexMatrix, "N");
-                                                        dtDoc.SetValue("co_Exisem", IndexMatrix, "N");
-                                                    }
-
-                                                    DTEMatrix objDteMatrix = new DTEMatrix();
-                                                    objDteMatrix.FebosID = dto.febosId;
-                                                    objDteMatrix.objDTE = objDTE;
-                                                    ListaDTEMatrix.ListaDTE.Add(objDteMatrix);
                                                 }
                                             }
 
