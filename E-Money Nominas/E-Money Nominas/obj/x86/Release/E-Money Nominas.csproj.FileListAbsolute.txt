@@ -14,3 +14,14 @@ C:\Users\Consultor\Desktop\Proyectos Seidor\Emoney SVN\E-Money Nominas\E-Money N
 C:\Users\Consultor\Desktop\Proyectos Seidor\Emoney SVN\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.csproj.ResolveComReference.cache
 C:\Users\Consultor\Desktop\Proyectos Seidor\Emoney SVN\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.exe
 C:\Users\Consultor\Desktop\Proyectos Seidor\Emoney SVN\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.pdb
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\bin\Release\E-Money Nominas.exe.config
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.csproj.ResolveComReference.cache
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.exe
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.pdb
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\bin\Release\E-Money Nominas.exe
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\bin\Release\E-Money Nominas.pdb
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.csprojResolveAssemblyReference.cache
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\E_Money_Nominas.Properties.Resources.resources
+C:\Users\laguilar\Documents\GIT\E-Money Nominas\E-Money Nominas\obj\x86\Release\E-Money Nominas.csproj.GenerateResource.Cache

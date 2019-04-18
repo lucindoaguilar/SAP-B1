@@ -830,6 +830,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                 if (responseDescarga.StatusDescription.Equals("OK"))
                 {
                     RootObjectDescarga d = JsonConvert.DeserializeObject<RootObjectDescarga>(responseDescarga.Content);
+
+                    strMensaje = d.mensaje;
                     if (d.documentos != null)
                     {
                         if (d.documentos.Count > 0)
@@ -1050,7 +1052,10 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     }
                     else
                     {
-                        Conexion_SBO.m_SBO_Appl.StatusBar.SetText("No existe Información para el rango de fecha seleccionado! ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                        if(strMensaje.Equals("Acceso denegado"))
+                            Conexion_SBO.m_SBO_Appl.StatusBar.SetText(strMensaje, SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Error);
+                        else
+                            Conexion_SBO.m_SBO_Appl.StatusBar.SetText("No existe Información para el rango de fecha seleccionado! ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
                     }
                 }
 
@@ -1124,6 +1129,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             
             SAPbouiCOM.Matrix oMatrix = oForm.Items.Item("oMtx").Specific;
             String FebosId = oMatrix.Columns.Item("co_FebId").Cells.Item(Row).Specific.Value;
+            
             result = FuncionesComunes.EnviarRespuestaComercial(FebosId, "RCD", RazonRechazo, String.Empty);            
             return result;            
         }
@@ -1170,9 +1176,14 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             DateTime dtFechaVenc = DateTime.Now;
             String Plazo = String.Empty;
             Int32 iPlazo = 0;
-            
+            bool blAcepComer = false;
+            SAPbobsCOM.Recordset oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+            oRecordset = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+            oRecordset.DoQuery("SELECT \"U_SentAcepC\" FROM \"@SEI_SETVALH\"");
+            blAcepComer = (oRecordset.Fields.Item("U_SentAcepC").Value == "Y" ? true : false);
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(Path, false))
-            {                
+            {
+   
                 DTE objDTE = null;
 
                 for (Int32 index = 1; index <= oMatrix.RowCount; index++)
@@ -1368,14 +1379,17 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                 String Mensaje = String.Empty;
                                 if (RetVal.Equals(0))
                                 {
-                                    rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
-                                    if (rslt.Success)
+                                    if (blAcepComer)
                                     {
-                                        file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
-                                    }
-                                    else
-                                    {
-                                        file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                        rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                        if (rslt.Success)
+                                        {
+                                            file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                        }
+                                        else
+                                        {
+                                            file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                        }
                                     }
                                 }
                                 else
@@ -1492,14 +1506,17 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                     String Mensaje = String.Empty;
                                     if (RetVal.Equals(0))
                                     {
-                                        rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
-                                        if (rslt.Success)
+                                        if (blAcepComer)
                                         {
-                                            file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
-                                        }
-                                        else
-                                        {
-                                            file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                            rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                            if (rslt.Success)
+                                            {
+                                                file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                            }
+                                            else
+                                            {
+                                                file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                            }
                                         }
                                     }
                                     else
@@ -1779,6 +1796,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             Int32 iPlazo = 0;
             String FoliosEM = string.Empty;
             string sFolioOC = null;
+            bool blAcepComer = false;
 
             SAPbouiCOM.Matrix oMatrix = null;
             DTE objDTE = null;
@@ -1786,6 +1804,11 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             SAPbobsCOM.Recordset oRec = null;
             try
             {
+                oRec = Conexion_SBO.m_oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+                oRec.DoQuery("SELECT \"U_SentAcepC\" FROM \"@SEI_SETVALH\"");
+                blAcepComer = (oRec.Fields.Item("U_SentAcepC").Value == "Y" ? true : false);
+
+
                 Path = System.IO.Path.GetTempPath() + "Logs.txt";
                 oMatrix = oForm.Items.Item("oMtx").Specific;
 
@@ -1888,16 +1911,19 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         String Mensaje = String.Empty;
                         if (RetVal.Equals(0))
                         {
-                            rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
-                            if (rslt.Success)
+                            if (blAcepComer)
                             {
-                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
-                                //file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
-                            }
-                            else
-                            {
-                                Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
-                                //file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                if (rslt.Success)
+                                {
+                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                                    //file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                }
+                                else
+                                {
+                                    Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Warning);
+                                    //file.WriteLine(String.Format("Reparo: El DTE {0} Tipo {1} de {2}-{3} Se integro, pero no se completo proceso de intercambio.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
+                                }
                             }
                         }
                         else

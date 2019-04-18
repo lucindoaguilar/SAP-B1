@@ -148,12 +148,15 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     oMatrix.AddRow(2);
                     //lines
                     ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_0").Cells.Item(1).Specific)).Value = "Entrada de mercancias";
-                    ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(1).Specific)).Checked = false;
+                    ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(1).Specific)).Checked = true;
                     ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_2").Cells.Item(1).Specific)).Value = "1";
                     ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_0").Cells.Item(2).Specific)).Value = "Oferta de compra";
-                    ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(2).Specific)).Checked = false;
+                    ((SAPbouiCOM.CheckBox)(oMatrix.Columns.Item("Col_1").Cells.Item(2).Specific)).Checked = true;
                     ((SAPbouiCOM.EditText)(oMatrix.Columns.Item("Col_2").Cells.Item(1).Specific)).Value = "2";
+
+                    ((SAPbouiCOM.CheckBox)(oForm.Items.Item("cbSentAcep").Specific)).Checked = true;
                 }
+                oForm.Items.Item("Mtx1").Visible = false;
                 oForm.Freeze(false);
 
             }
