@@ -260,6 +260,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             string MntTotal = String.Empty;
             string IVA = String.Empty;
             string NroRef = null;
+            string RzRef = null;
             SAPbobsCOM.Recordset oRecordset = null;
             bool blAcepComer = false;
             try
@@ -290,7 +291,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                     IVA = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_IVA").Cells.Item(i).Specific).Value;
 
                     NroRef = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-1").Cells.Item(i).Specific).Value;
-
+                    RzRef = ((SAPbouiCOM.EditText)oMatrix.Columns.Item("Col_1-4").Cells.Item(i).Specific).Value;
                     ResultMessage rslt = FuncionesComunes.ValidacionDTEIntegrado(RutEmisor, Int32.Parse(Tipo), Folio);// Int64.Parse(Folio));
                     rslt.Success = true;
                     if (rslt.Success)
@@ -347,7 +348,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         oDoc.FolioPrefixString = Tipo;
                         oDoc.Indicator = Tipo;
                         oDoc.UserFields.Fields.Item("U_SEI_FEBOSID").Value = FebId;
-                        oDoc.NumAtCard = NroRef;
+                        oDoc.NumAtCard = RzRef;
+                        oDoc.Comments = RzRef;
 
                         oDoc.Lines.ItemDescription = Descripcion;
                         oDoc.Lines.AccountCode = Cuenta;
