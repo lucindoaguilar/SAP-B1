@@ -736,6 +736,7 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             string strMensaje = "";
             List<Referencia> RefOC = null;
             List<Referencia> RefEM = null;
+            List<Referencia> RefAll = null;
             string sEstado = null;
 
             ListaDTEMatrix.ListaDTE.Clear();
@@ -926,13 +927,26 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                                     String DecodeString = iso.GetString(datos);
 
                                                     ResultMessage result = FuncionesComunes.ObtenerDTE(DecodeString);
-
                                                     if (result.Success)
                                                     {
                                                         DTE objDTE = (DTE)result.DTE;
 
                                                         if (objDTE.Referencia.Count > 0)
                                                         {
+                                                            #region Referencia Default 
+                                                            RefAll = new List<Referencia>();
+                                                            RefAll = objDTE.Referencia;
+                                                            //todas referencias
+                                                            DocRef = string.Join(", ", RefAll.Select(a => a.FolioRef));
+                                                            NroRef = string.Join(", ", RefAll.Select(a => a.CodRef));
+                                                            FecRef = string.Join(", ", RefAll.Select(a => a.FchRef));
+                                                            RzRef = string.Join(", ", RefAll.Select(a => a.RazonRef));
+
+                                                            dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                            dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                            dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                            dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+                                                            #endregion Referencia Default 
 
                                                             RefOC = new List<Referencia>();
                                                             RefEM = new List<Referencia>();
@@ -945,14 +959,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                                                 //dtDoc.SetValue("co_Refoc", IndexMatrix, "Y");
                                                                 string FoliosEM = string.Join(", ", RefEM.Select(z => z.FolioRef));
                                                                 // Referencia entrada
-                                                                DocRef = string.Join(", ", RefEM.Select(z => z.FolioRef));
-                                                                NroRef = string.Join(", ", RefEM.Select(z => z.CodRef));
-                                                                FecRef = string.Join(", ", RefEM.Select(z => z.FchRef));
-                                                                RzRef = string.Join(", ", RefEM.Select(z => z.RazonRef));
-                                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
-                                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
-                                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
-                                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+                                                         
+                                                                
 
                                                                 existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosEM, CardCode, ref TotalEM, ref FoliosEMSAP);
 
@@ -978,14 +986,14 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                                                 existe = FuncionesComunes.ExisteEntradaMercancia("801", FoliosOC, CardCode, ref TotalEM, ref FoliosEMSAP);
 
                                                                 // Referencia orden de compra
-                                                                DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
-                                                                NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
-                                                                FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
-                                                                RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
-                                                                dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
-                                                                dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
-                                                                dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
-                                                                dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
+                                                                //DocRef = string.Join(", ", RefOC.Select(z => z.FolioRef));
+                                                                //NroRef = string.Join(", ", RefOC.Select(z => z.CodRef));
+                                                                //FecRef = string.Join(", ", RefOC.Select(z => z.FchRef));
+                                                                //RzRef = string.Join(", ", RefOC.Select(z => z.RazonRef));
+                                                                //dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
+                                                                //dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
+                                                                //dtDoc.SetValue("co_FecRef", IndexMatrix, FecRef);
+                                                                //dtDoc.SetValue("co_RzRef", IndexMatrix, RzRef);
 
                                                                 if (existe)
                                                                 {

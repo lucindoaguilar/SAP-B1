@@ -24,7 +24,7 @@ namespace E_Money_Nominas.Comunes
             string Mes = (dt.Month.ToString().Length == 1) ? dt.Month.ToString().PadLeft(2, '0') : dt.Month.ToString();
             string Dia = (dt.Day.ToString().Length == 1) ? dt.Day.ToString().PadLeft(2, '0') : dt.Day.ToString();
 
-            Fecha = string.Format("{0}/{1}/{2}", dt.Year.ToString(), Dia, Mes);
+            Fecha = string.Format("{0}/{1}/{2}", Dia, Mes, dt.Year.ToString());
             //Fecha = string.Format("{0}/{1}/{2}", dt.Year.ToString(), Mes, Dia);
 
             // Establecer objeto de datos y consulta
@@ -156,25 +156,43 @@ namespace E_Money_Nominas.Comunes
                 NombreArchivo = string.Format("{0}{1}.txt", Directorio, FuncionesComunes.ValidarCaracteres(Pago));
 
                 // Generar documento según banco
+                switch(BancoLocal)
+                {
+                    case "016":
+                        result = NominaBci.GenerarNomina(listaPagos, NombreArchivo);
+                        break;
+                    case "049":
+                        result = NominaSecurity.GenerarNomina(listaPagos, NombreArchivo);
+                        break;
+                    case "037":
+                        result = NominaSantander.GenerarNomina(listaPagos, NombreArchivo);
+                        break;
+                    case "001":
+                        result = NominaBancoDeChile.GenerarNomina(listaPagos, NombreArchivo);
+                        break;
+                    default:
+                        result.Success = false;
+                        result.Mensaje = "El banco del pago seleccionado no esta implementado";
+                        break;
+                }
                 // Banco BCI
                 if (BancoLocal.Equals("016"))
                 {
-                    result = NominaBci.GenerarNomina(listaPagos, NombreArchivo);
+                    
                 }
                 // Banco SECURITY
                 else if(BancoLocal.Equals("049"))
                 {
-                    result = NominaSecurity.GenerarNomina(listaPagos, NombreArchivo);
+                    
                 }
                 // Banco SANTANDER
                 else if (BancoLocal.Equals("037"))
                 {
-                    result = NominaSantander.GenerarNomina(listaPagos, NombreArchivo);
+                   
                 }
                 else
                 {
-                    result.Success = false;
-                    result.Mensaje = "El banco del pago seleccionado no esta implementado";
+                    
                 }
                                
             }

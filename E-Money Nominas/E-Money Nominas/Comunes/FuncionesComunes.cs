@@ -67,11 +67,19 @@ namespace E_Money_Nominas.Comunes
         {
             string query = string.Empty;
 
-            query = @"Select WizardName 
-                      From OPWZ
-                      Where StatusDisc='Ejecutado'
-                      and PmntDate = '" + Fecha + "'";
-
+            switch (Conexion_SBO.m_oCompany.DbServerType)
+            {
+                case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
+                    query = "SELECT T0.\"WizardName\" FROM OPWZ T0 WHERE T0.\"StatusDisc\" = 'Ejecutado' ";
+                    query +=" AND TO_VARCHAR(TO_DATE(T0.\"PmntDate\"), 'DD/MM/YYYY')= '"+ Fecha + "'";
+                    break;
+                default:
+                    query = @"SELECT WizardName 
+                            FROM OPWZ 
+                            WHERE StatusDisc='Ejecutado' 
+                            AND FORMAT(PmntDate,'dd-MM-yyyy') = '" + Fecha + "'";
+                    break;
+            }
             return query;
         }
 
@@ -82,8 +90,28 @@ namespace E_Money_Nominas.Comunes
         public static string QueryPagosMasivos(string Pago)
         {
             string query = string.Empty;
-
-            query = @"SELECT Left(rtrim(ltrim(T3.dflAccount))+space(20),20) 'Cuenta Destino' 
+            switch(Conexion_SBO.m_oCompany.DbServerType)
+            {
+                case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
+                    query = "SELECT LEFT(RPAD(RTRIM(LTRIM(TO_VARCHAR(T3.\"DflAccount\"))),20,''),20) \"Cuenta Destino\" ";
+                    query += ",T3.\"BankCode\" \"Código Banco\" ";
+                    query += ",(RIGHT('00000000' || SUBSTRING(LTRIM(RTRIM(REPLACE(T3.\"LicTradNum\",'.',''))),1,LOCATE((LTRIM(RTRIM(REPLACE(T3.\"LicTradNum\",'.','')))),'-',-1)),8) || RIGHT('0' || LTRIM(RTRIM(REPLACE(T3.\"LicTradNum\",'.',''))),1)) \"Rut Benificiario\" ";
+                    query += ",LEFT(RPAD(RTRIM(LTRIM(T0.\"PayeeName\")),45,''),45)  \"Nombre Beneficiario\" ";
+                    query += " ,T1.\"SumApplied\" \"Monto\" ,CASE T1.\"InvType\" WHEN 19 THEN '' ELSE TO_VARCHAR(T2.\"FolioNum\") END \"Folio\" ";
+                    query += " ,T4.\"ValDateTo\" \"Fecha\",T2.\"FolioPref\" \"Tipo Doc\",T2.\"DocDueDate\" ";
+                    query += " ,T0.\"PymBnkCode\" \"Banco Local\",T6.\"BankName\",T2.\"DocCur\" ";
+                    query += " ,T0.\"PymBnkAcct\",T3.\"E_Mail\" ";
+                    query += " FROM OPEX T0 ";
+                    query += " INNER JOIN ODSC T6 ON T0.\"PymBnkCode\" = T6.\"BankCode\" ";
+                    query += " INNER JOIN OCRD T3 ON T3.\"CardCode\" = T0.\"VendorNum\" ";
+                    query += " INNER JOIN OPWZ T4 ON T4.\"IdNumber\" = T0.\"PaymWizCod\" ";
+                    query += " ,VPM2 T1 LEFT JOIN OPCH T2 ON T2.\"DocEntry\" = T1.\"DocEntry\" ";
+                    query += " WHERE T0.\"PaymDocNum\" = T1.\"DocNum\" ";
+                    query += " AND T4.\"WizardName\" = '" + Pago + "' ";
+                    query += " AND LOCATE(T3.\"LicTradNum\",'-') > 0 ";
+                    break;
+                default:
+                    query = @"SELECT Left(rtrim(ltrim(T3.dflAccount))+space(20),20) 'Cuenta Destino' 
                             ,T3.BankCode 'Código Banco'
                             ,Right('00000000'+substring(ltrim(rtrim(replace(T3.lictradnum,'.',''))),1,charindex('-',ltrim(rtrim(replace(T3.lictradnum,'.',''))))-1),8) + Right('0'+ltrim(rtrim(replace(T3.lictradnum,'.',''))),1) 'Rut Benificiario'
                             ,Left(rtrim(ltrim(T0.PayeeName))+space(45),45) 'Nombre Beneficiario'
@@ -107,7 +135,8 @@ namespace E_Money_Nominas.Comunes
                             and T4.WizardName  = '" + Pago + @"'
                             and  charindex('-',T3.lictradnum)>0
                             --ORDER BY T3.LicTradNum";
-
+                    break;
+            }
             return query;
         }
 
@@ -119,8 +148,12 @@ namespace E_Money_Nominas.Comunes
         public static string QueryPagosMasivosSantander(string Pago)
         {
             string query = string.Empty;
-
-            query = @"SELECT Left(rtrim(ltrim(T3.dflAccount))+space(20),20) 'Cuenta Destino' 
+            switch (Conexion_SBO.m_oCompany.DbServerType)
+            {
+                case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
+                    break;
+                default:
+                    query = @"SELECT Left(rtrim(ltrim(T3.dflAccount))+space(20),20) 'Cuenta Destino' 
                     ,T3.BankCode 'Código Banco'
                     ,Right('00000000'+substring(ltrim(rtrim(replace(T3.lictradnum,'.',''))),1,charindex('-',ltrim(rtrim(replace(T3.lictradnum,'.',''))))-1),8) + Right('0'+ltrim(rtrim(replace(T3.lictradnum,'.',''))),1) 'Rut Benificiario'
                     ,Left(rtrim(ltrim(T0.PayeeName))+space(45),45) 'Nombre Beneficiario'
@@ -141,7 +174,8 @@ namespace E_Money_Nominas.Comunes
                     and  charindex('-',T3.lictradnum)>0
 	                GROUP BY T3.dflAccount,T3.BankCode,T3.LicTradNum,T0.PayeeName,T0.PymBnkCode,T6.BankName,T2.DocCur,T0.PymBnkAcct,T3.E_Mail
 	                ORDER BY T0.PayeeName";
-
+                    break;
+            }
 
             return query;
         }
@@ -154,10 +188,18 @@ namespace E_Money_Nominas.Comunes
         public static string QueryObtenerBanco(string Pago)
         {
             string query = string.Empty;
-
-            query = @"SELECT TOP (1) O.PymBnkCode
+            switch(Conexion_SBO.m_oCompany.DbServerType)
+            {
+                case SAPbobsCOM.BoDataServerTypes.dst_HANADB:
+                    query = "SELECT T0.\"PayBnkCode\" FROM OPEX T0  INNER JOIN OPWZ T1 ON T0.\"PaymWizCod\" = T1.\"IdNumber\" ";
+                    query += " WHERE T1.\"WizardName\" ='" + Pago + "' LIMIT 1";
+                    break;
+                default:
+                    query = @"SELECT TOP (1) O.PymBnkCode
                     FROM OPEX O INNER JOIN OPWZ Z ON Z.IdNumber = O.PaymWizCod
                     WHERE Z.WizardName  = '" + Pago + "'";
+                    break;
+            }          
 
             return query;
         }

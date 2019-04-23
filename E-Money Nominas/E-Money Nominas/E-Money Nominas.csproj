@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ClaseFormulario\SEI_FormNominas.cs" />
     <Compile Include="Comunes\ClasePagoMasivo.cs" />
+    <Compile Include="Comunes\NominaBancoDeChile.cs" />
     <Compile Include="Comunes\NominaBci.cs" />
     <Compile Include="Comunes\Eventos_SBO.cs" />
     <Compile Include="Comunes\FuncionesComunes.cs" />
