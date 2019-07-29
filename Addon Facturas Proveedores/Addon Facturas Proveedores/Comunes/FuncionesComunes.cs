@@ -1845,7 +1845,8 @@ namespace Addon_Facturas_Proveedores.Comunes
             {
                 if (TipoAccion.Equals("ACD"))
                 {
-                    result = EnviarRespuestaComercial(FebosID, "ERM", String.Empty, ObtenerRecinto());
+                    result.Success = true;
+                    //result = EnviarRespuestaComercial(FebosID, "ERM", String.Empty, ObtenerRecinto());
                 }
                 else
                 {

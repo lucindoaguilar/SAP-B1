@@ -1,0 +1,277 @@
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores SQL\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Consultor\Desktop\Proyectos Seidor\Addon Facturas Proveedores\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormVal.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Consultor\Desktop\Proyectos Seidor\Agrofarming Otros\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Users\admin_sap02\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.XmlSerializers.dll
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Newtonsoft.Json.dll
+C:\Seidor Chile\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\RestSharp.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Consultor\Desktop\Proyectos Seidor\AGROFARMING\RESPALDO SERVER\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDocS.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\consultor7\Desktop\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDocS.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDocS.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Lucindo-pc\Documents\Visual Studio 2015\S\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDocS.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormErr.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormDat.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIngMultipleHec.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormIntc.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormMerc.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormNoRec.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Formularios\FormInt.srf
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe.config
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.exe
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\Addon Facturas Proveedores.pdb
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\S4Prrhh\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\64\Addon Facturas Proveedores.exe.config
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.exe.config
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormDocS.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormErr.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormDat.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormIngMultipleHec.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormIntc.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormMerc.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormNoRec.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormInt.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.exe
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.pdb
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\Newtonsoft.Json.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X64\RestSharp.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe.config
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDocS.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormErr.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDat.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIngMultipleHec.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIntc.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormMerc.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormNoRec.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormInt.srf
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.pdb
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\Newtonsoft.Json.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\bin\Release\X86\RestSharp.dll
+C:\Users\Seidor3.ESIGN\Documents\Visual Studio 2015\Projects\Addon Facturas Proveedores HANA and SBO\Addon Facturas Proveedores HANA\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csprojResolveAssemblyReference.cache
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormDocS.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormErr.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormDat.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormIngMultipleHec.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormIntc.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormMerc.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormNoRec.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Formularios\FormIntOLD.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.exe.config
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X64\Addon Facturas Proveedores.pdb
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDocS.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormErr.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDat.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIngMultipleHec.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIntc.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormMerc.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormNoRec.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIntOLD.srf
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe.config
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.pdb
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDocS.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormErr.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDat.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIngMultipleHec.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormIntc.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormMerc.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormNoRec.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\ClaseFormulario\SEI_FormSetVal.cs
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormDocSMas.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Formularios\FormSetVal.srf
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe.config
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.pdb
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbobsCOM.dll
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Interop.SAPbouiCOM.dll
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.ResolveComReference.cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon_Facturas_Proveedores.Properties.Resources.resources
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.csproj.GenerateResource.Cache
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.exe
+C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\obj\x86\Release\Addon Facturas Proveedores.pdb

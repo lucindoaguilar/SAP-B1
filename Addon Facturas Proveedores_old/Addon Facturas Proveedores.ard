@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AddOnRegData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SlientInstallation="No" SlientUpgrade="No" Partnernmsp="SEIDOR" SchemaVersion="3.0" Type="" MultipleVersion="false" OnDemand="" OnPremise="" ExtName="Addon Facturas Proveedores" ExtVersion="1.2.0" Contdata="" Partner="SEIDOR" DBType="Both" ClientType="A">
+  <Validity>
+    <SBOCompatibility>
+      <Version From="" To="" />
+    </SBOCompatibility>
+  </Validity>
+  <Configuration>
+    <Repository>
+      <Properties />
+    </Repository>
+    <Deployment>
+      <Properties />
+    </Deployment>
+    <Assignment>
+      <Properties />
+    </Assignment>
+  </Configuration>
+  <Addons>
+    <Addon Name="" Group="" ForceFlag="" Visible="" AutoAssign="" SelfUpgrd="">
+      <x86 AddonExe="C:\Users\laguilar\Documents\GIT\Addon Facturas Proveedores\Addon Facturas Proveedores\bin\Release\X86\Addon Facturas Proveedores.exe" AddonSig="">
+        <Installation>
+          <Files>
+            <File FileName="Addon Facturas Proveedores.exe">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.exe.config">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.vshost.exe">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.vshost.exe.config">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="Newtonsoft.Json.dll">
+              <Actions />
+            </File>
+            <File FileName="RestSharp.dll">
+              <Actions />
+            </File>
+            <File FileName="ClaseFormulario\SEI_FormSetVal.cs">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormDat.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormDocS.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormDocSMas.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormErr.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIngMultipleHec.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormInt.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIntc.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIntOLD.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIntXML.xml">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormInt_old.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormMerc.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormNoRec.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormSetVal.srf">
+              <Actions />
+            </File>
+          </Files>
+        </Installation>
+        <Uninstallation>
+          <Files>
+            <File FileName="Addon Facturas Proveedores.exe">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.exe.config">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.vshost.exe">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.vshost.exe.config">
+              <Actions />
+            </File>
+            <File FileName="Addon Facturas Proveedores.vshost.exe.manifest">
+              <Actions />
+            </File>
+            <File FileName="Newtonsoft.Json.dll">
+              <Actions />
+            </File>
+            <File FileName="RestSharp.dll">
+              <Actions />
+            </File>
+            <File FileName="ClaseFormulario\SEI_FormSetVal.cs">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormDat.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormDocS.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormDocSMas.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormErr.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIngMultipleHec.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormInt.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIntc.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIntOLD.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormIntXML.xml">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormInt_old.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormMerc.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormNoRec.srf">
+              <Actions />
+            </File>
+            <File FileName="Formularios\FormSetVal.srf">
+              <Actions />
+            </File>
+          </Files>
+        </Uninstallation>
+      </x86>
+      <x64 AddonExe="" AddonSig="">
+        <Installation>
+          <Files />
+        </Installation>
+        <Uninstallation>
+          <Files />
+        </Uninstallation>
+      </x64>
+    </Addon>
+  </Addons>
+  <XApps>
+    <XApp Name="" Path="" FileName="" />
+  </XApps>
+  <UDQs>
+    <UDQ udqname="">
+      <Hana FileName="" />
+    </UDQ>
+  </UDQs>
+</AddOnRegData>

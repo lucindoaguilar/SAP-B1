@@ -852,9 +852,15 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                             string RzRef = null;
 
                             strMensaje = d.mensaje;
-
+                            int cant = 0;
+                            var defd =new Comunes.Documento();
                             foreach (Comunes.Documento dto in d.documentos)
                             {
+                                cant++;
+                               
+                                if (cant > 142)
+                                     defd = dto; 
+
                                 if (ValidarFormatDesca(dto))
                                 {
                                     if (!BuscarFacturasProveedores(dto.rutEmisor, dto.folio.ToString()))
@@ -941,6 +947,14 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                                             NroRef = string.Join(", ", RefAll.Select(a => a.CodRef));
                                                             FecRef = string.Join(", ", RefAll.Select(a => a.FchRef));
                                                             RzRef = string.Join(", ", RefAll.Select(a => a.RazonRef));
+                                                            if (DocRef.Length > 200)
+                                                                DocRef = DocRef.Substring(0, 199);
+                                                            if (NroRef.Length > 200)
+                                                                NroRef = NroRef.Substring(0, 199);
+                                                            if (FecRef.Length > 200)
+                                                                FecRef = FecRef.Substring(0, 199);
+                                                            if (RzRef.Length > 253)
+                                                                RzRef = RzRef.Substring(0, 252);
 
                                                             dtDoc.SetValue("co_DocRef", IndexMatrix, DocRef);
                                                             dtDoc.SetValue("co_NroRef", IndexMatrix, NroRef);
@@ -1137,8 +1151,9 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
             
             SAPbouiCOM.Matrix oMatrix = oForm.Items.Item("oMtx").Specific;
             String FebosId = oMatrix.Columns.Item("co_FebId").Cells.Item(Row).Specific.Value;
-            
-            result = FuncionesComunes.EnviarRespuestaComercial(FebosId, "RCD", RazonRechazo, String.Empty);            
+
+            //result = FuncionesComunes.EnviarRespuestaComercial(FebosId, "RCD", RazonRechazo, String.Empty);       
+            result.Success = true;     
             return result;            
         }
 
@@ -1389,7 +1404,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                 {
                                     if (blAcepComer)
                                     {
-                                        rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                        rslt.Success = true;
+                                        //rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                                         if (rslt.Success)
                                         {
                                             file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
@@ -1516,7 +1532,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                                     {
                                         if (blAcepComer)
                                         {
-                                            rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                            rslt.Success = true;
+                                            //rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                                             if (rslt.Success)
                                             {
                                                 file.WriteLine(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor));
@@ -1921,7 +1938,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         {
                             if (blAcepComer)
                             {
-                                rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                rslt.Success = true;
+                                //rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                                 if (rslt.Success)
                                 {
                                     Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", objDTE.IdDoc.Folio, objDTE.IdDoc.TipoDTE, objDTE.Emisor.RznSoc, objDTE.Emisor.RUTEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);

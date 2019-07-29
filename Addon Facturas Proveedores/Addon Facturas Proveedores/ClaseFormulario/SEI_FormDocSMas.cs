@@ -348,10 +348,26 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         oDoc.FolioPrefixString = Tipo;
                         oDoc.Indicator = Tipo;
                         oDoc.UserFields.Fields.Item("U_SEI_FEBOSID").Value = FebId;
-                        oDoc.NumAtCard = RzRef;
-                        oDoc.Comments = RzRef;
 
-                        oDoc.Lines.ItemDescription = Descripcion;
+                       
+                        if (RzRef.Length > 254)
+                        {
+                            RzRef = RzRef.Substring(0, 253);
+                            oDoc.Comments = RzRef;
+                        }
+                        else
+                            oDoc.Comments = RzRef;
+
+                        if (NroRef.Length > 99)
+                        {
+                            NroRef = NroRef.Substring(0, 98);
+                            oDoc.NumAtCard = NroRef;                            
+                        }
+                        else
+                            oDoc.NumAtCard = NroRef;
+                        //oDoc.Comments = RzRef;
+
+                        oDoc.Lines.ItemDescription = Descripcion.PadRight(99);
                         oDoc.Lines.AccountCode = Cuenta;
                         oDoc.Lines.LineTotal = Convert.ToDouble(Convert.ToDouble(MntTotal) - Convert.ToDouble(IVA));
                         switch (Tipo)
@@ -375,7 +391,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
                         String Mensaje = String.Empty;
                         if (RetVal.Equals(0))
                         {
-                            rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                            rslt.Success = true;
+                            //rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                             if (rslt.Success)
                             {
                                 Conexion_SBO.m_SBO_Appl.StatusBar.SetText("Exito: El DTE :" + Folio + " Tipo :" + Tipo + " de :" + RutEmisor, SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
@@ -383,7 +400,8 @@ namespace Addon_Facturas_Proveedores.ClaseFormulario
 
                                 if (blAcepComer)
                                 {
-                                    rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
+                                    rslt.Success = true;
+                                    //rslt = FuncionesComunes.EnviarRespuestaComercial(FebId, "ACD", String.Empty, String.Empty);
                                     if (rslt.Success)
                                     {
                                         Conexion_SBO.m_SBO_Appl.StatusBar.SetText(String.Format("Exito: El DTE {0} Tipo {1} de {2}-{3} Se integro.", Folio, Tipo, RutEmisor), SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
