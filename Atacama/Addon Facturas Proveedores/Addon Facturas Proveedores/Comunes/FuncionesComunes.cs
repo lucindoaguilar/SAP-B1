@@ -2079,6 +2079,7 @@ namespace Addon_Facturas_Proveedores.Comunes
         public static docRef buscarCompras(string doc_Num)
         {
 
+
             #region query
 
             try
